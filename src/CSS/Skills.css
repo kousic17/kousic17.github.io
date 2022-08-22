@@ -1,0 +1,33 @@
+.skill {
+    float: left;
+}
+
+.career {
+    position: relative;
+    margin: 10px 10px 30px 45px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 2px solid #FF6699;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    color: #0F0F0F;
+    float: left;
+}
+
+h3 {
+    margin: 80px 0 10px 200px;
+}
+
+.para {
+    margin: 10px 0 60px 200px;
+    float: left;
+    line-height: 40px;
+    white-space: pre-wrap;
+    color: #6E7881;
+}
+
+
+.chart {
+    position: relative;
+}

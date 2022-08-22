@@ -1,0 +1,101 @@
+.footer {
+    width: 100%;
+    float: left;
+    background-color: #333333;
+}
+
+.footer h1 {
+    margin: 30px 10px 0 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 2px solid #F03B6E;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    float: left;
+    color: #FFFFFF;
+}
+
+.fcontent {
+    margin: 130px 10px 10px 60px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 2.3rem;
+    font-weight: 400;
+    line-height: 1.259;
+    letter-spacing: -0.05rem;
+    color: #FFFFFF;
+}
+
+.email {
+    margin-top: 30px;
+}
+
+.btn.h-full-width {
+    margin: 30px 10px 10px 60px;
+}
+
+.btn.btn-primary {
+    background: transparent;
+    border-color: #F03B6E;
+    color: #FFFFFF;
+}
+
+.btn {
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    height: 3rem;
+    line-height: 2.6rem;
+    padding: 0 3.2rem;
+    margin: 0 0.4rem 1.6rem 0;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all .3s;
+    border: 0.2rem solid #D3D3D3;
+}
+
+.btn:hover {
+    background: #F03B6E;
+    color: #FFFFFF;
+}
+
+.footer .social {
+    position: relative;
+    margin: 30px 0 0 60px;    
+}
+
+.footer .social a + a {
+    padding-left: 0.4em;
+}
+
+.map {
+    display: flex;
+    position: absolute;
+    margin-left: 500px;
+    padding-left: 500px;
+    margin-top: 40px;
+    background: transparent;
+}
+
+.copy {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    margin: -30px 0 0 340px;
+    padding-left: 340px;
+    white-space: nowrap;
+    color: #B5B4BB;
+}
+
+.copy a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: #F03B6E;
+}

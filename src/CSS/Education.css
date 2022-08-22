@@ -1,0 +1,81 @@
+.title1 {
+    position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 2px solid #FF6699;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    color: #0F0F0F;
+    float: left;
+    margin: 0 0 10px 45px;
+}
+
+.head {
+    margin: 50px 0 30px 200px;
+    font-size: 22px;
+    font-weight: bolder;
+    padding-left: 200px;
+    background: transparent;
+    white-space: pre-line;
+}
+
+.head1 {
+    margin: 50px 0 30px 200px;
+    font-size: 22px;
+    font-weight: bolder;
+    padding-left: 200px;
+    background: transparent;
+}
+
+.univ {
+    margin: 10px 0 10px 200px;
+    padding-left: 200px;
+    color: #6E7881;
+}
+
+.univ a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-style: italic;
+    margin: 10px 0 10px 0;
+    color: #FF6699;
+    text-decoration: none;
+}
+
+.univ a:hover {
+    color: #313131;
+}
+
+.dip {
+    margin: 10px 0 30px 200px;
+    float: left;
+    padding-left: 200px;
+    color: #6E7881;
+}
+
+.dip a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-style: italic;
+    margin: 10px 0 10px 0;
+    color: #FF6699;
+    text-decoration: none;
+}
+
+.dip a:hover {
+    color: #313131;
+}
+
+.dip > span {
+    white-space: none;
+}
+
+.course {
+    margin: 10px 0 30px 200px;
+    float: left;
+    line-height: 40px;
+    white-space: pre-wrap;
+    padding-left: 200px;
+    color: #6E7881;
+}

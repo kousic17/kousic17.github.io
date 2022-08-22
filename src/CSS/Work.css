@@ -1,0 +1,107 @@
+.title {
+    margin: 0 10px 10px 45px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 2px solid #FF6699;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    color: #0F0F0F;
+    float: left;
+}
+
+.org {
+    margin: 50px 0 30px 200px;
+    font-size: 22px;
+    font-weight: bolder;
+    padding-left: 200px;
+    background: transparent;
+    white-space: pre-line;
+}
+
+.org1 {
+    margin: 50px 0 30px 200px;
+    font-size: 22px;
+    font-weight: bolder;
+    padding-left: 200px;
+    background: transparent;
+    white-space: pre-line;
+}
+
+.comp {
+    margin: 10px 0 10px 200px;
+    padding-left: 200px;
+    color: #6E7881;
+}
+
+span {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 100%;
+    background: transparent;
+}
+
+.role span {
+    display: block;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 100%;
+    background: transparent;
+}
+
+.role1 span {
+    display: block;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 100%;
+    background: transparent;
+}
+
+.comp a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0 0 10px 0;
+    color: #FF6699;
+    text-decoration: none;
+}
+
+.comp a:hover {
+    color: #313131;
+}
+
+.comp1 {
+    margin: 10px 0 10px 200px;
+    padding-left: 200px;
+    color: #6E7881;
+}
+
+.comp1 a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0 0 10px 0;
+    color: #FF6699;
+    text-decoration: none;
+}
+
+.comp1 a:hover {
+    color: #313131;
+}
+
+.role {
+    margin: 10px 0 30px 200px;
+    float: left;
+    line-height: 40px;
+    width: 100%;
+    padding-left: 200px;
+    color: #6E7881;
+}
+
+.role1 {
+    margin: 10px 0 30px 200px;
+    float: left;
+    line-height: 40px;
+    padding-left: 200px;
+    color: #6E7881;
+}

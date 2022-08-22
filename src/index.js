@@ -1,17 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './App.css';
+import './CSS/Navbar.css';
+import './CSS/About.css';
+import './CSS/Social.css';
+import './CSS/Work.css';
+import './CSS/Education.css';
+import './CSS/Skills.css';
+import './CSS/Footer.css';
+import Navbar from './Components/Navbar';
+import About from './Contents/About';
+import Work from './Contents/Work';
+import Education from './Contents/Education';
+import Skills from './Contents/Skill';
+import Footer from './Components/Footer';
+import { BrowserRouter as Router} from 'react-router-dom';
+import 'font-awesome/css/font-awesome.min.css';
+require('dotenv').config();
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const container = document.getElementById('root');
+
+const root = ReactDOM.createRoot(container);
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  <Router>
+    <Navbar /><About /><Work /><Education /><Skills /><Footer />
+  </Router>
+)
