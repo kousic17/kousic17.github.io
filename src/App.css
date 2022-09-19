@@ -46,3 +46,16 @@ header {
   background: transparent;
   margin-bottom: 30px;
 }   
+
+@media (min-width: 601px) {
+  html {
+    margin: 0;
+    height: auto;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    height: auto;
+  }
+}
