@@ -32,3 +32,28 @@ hr {
     margin: 11px 0 30px 0;
     height: 0;
 }
+
+
+@media only screen and (max-width: 600px) {
+    * {
+        max-width: 100%;
+    }
+
+    .about {
+        width: 600px;
+    }
+
+    .subtopic {
+        float: none;
+        margin: 20px 0 0 10px;
+    }
+
+    .about p {
+        width: 100%;
+        margin: 80px 0 20px 10px;
+    }
+
+    hr {
+        width: 100%;
+    }
+}

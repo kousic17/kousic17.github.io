@@ -79,3 +79,47 @@
     padding-left: 200px;
     color: #6E7881;
 }
+
+@media only screen and (max-width: 600px) {
+    * {
+        max-width: 100%;
+    }
+
+    .edu {
+        width: 600px;
+    }
+
+    .title1 {
+        float: none;
+        margin: 0 0 0 10px;
+    }
+
+    .head {
+        margin: 0 0 0 10px;
+        padding: 70px 0 0 0;
+    }
+
+    .head1 {
+        margin: 0 0 0 10px;
+        padding: 70px 0 0 0;
+    }
+
+    .univ {
+        margin: 10px 0 0 0;
+        padding: 0 0 0 10px;
+    }
+
+    .dip {
+        margin: 10px 0 0 0;
+        padding: 0 0 0 10px; 
+    }
+
+    .course {
+        margin: 10px 0 30px 0;
+        padding: 0 0 0 10px;
+    }
+
+    hr {
+        width: 100%;
+    }
+}

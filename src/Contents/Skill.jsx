@@ -29,7 +29,7 @@ const state = {
             ],
             data: [45, 45, 30, 30],
             hoverBorderWidth: 4,
-            borderWidth: 1.8
+            borderWidth: 1.8,
         }
     ]
 }
@@ -44,15 +44,16 @@ class Skills extends Component {
                     <h3>Technical Skills</h3> 
                     <Pie 
                         data={state}
-                        height={50}
+                        height="30px"
+                        width="100"
                         options={{
                             legend: {
                                 display: true,
                                 position: 'top',
                                 labels: {
                                     fontFamily: 'Open Sans',
-                                    fontStyle: 'bold'
-                                }
+                                    fontStyle: 'bold',
+                                },
                             },
                             plugins: {
                                 datalabels: {
