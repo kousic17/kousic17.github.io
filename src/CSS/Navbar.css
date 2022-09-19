@@ -96,4 +96,8 @@ ul.nav a {
     .main {
         width: 100%;
     }
+
+    .nav-wrap {
+        font-size: 10px;
+    }
 }

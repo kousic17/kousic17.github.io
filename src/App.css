@@ -1,9 +1,10 @@
 * {
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 body {
-  min-width: 100%;
+  width: 100%;
   position: absolute;
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;

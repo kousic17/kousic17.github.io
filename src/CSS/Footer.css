@@ -107,7 +107,7 @@
 
     .footer {
         width: 100%;
-        height: 100vh;
+        height: auto;
     }
 
     .footer h1 {
