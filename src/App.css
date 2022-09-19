@@ -51,6 +51,7 @@ header {
   html {
     margin: 0;
     height: auto;
+    width: 100%;
     overflow-x: hidden;
   }
 
