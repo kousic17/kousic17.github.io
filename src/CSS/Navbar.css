@@ -87,3 +87,17 @@ ul.nav a {
     border: 0;
     outline: none;
 }
+
+@media only screen and (max-width: 600px) {
+    * {
+        max-width: 100%;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .nav {
+        width: 400px;
+    }
+}
