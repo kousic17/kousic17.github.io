@@ -47,11 +47,10 @@ header {
   margin-bottom: 30px;
 }   
 
-@media (min-width: 601px) {
+@media only screen and (min-width: 601px) {
   html {
     margin: 0;
     height: auto;
-    width: 100%;
     overflow-x: hidden;
   }
 

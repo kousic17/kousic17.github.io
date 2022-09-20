@@ -98,7 +98,18 @@ ul.nav a {
     }
 
     .nav-wrap {
-        letter-spacing: 1.8px;
         white-space: nowrap;
+    }
+
+    .nav-wrap ul {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .nav-wrap li {
+        display: inline-block;
+        width: 33%;
+        text-align: center;
+        margin-left: -4px;
     }
 }

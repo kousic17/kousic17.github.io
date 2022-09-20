@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import { Fade } from "react-reveal";
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
-const API_KEY = process.env.REACT_APP_API_KEY;
 
 class Footer extends Component {
   render() {
@@ -19,7 +18,7 @@ class Footer extends Component {
               zoom={10}
               initialCenter={{
                 lat: 10.7661821,
-                lng: 79.1319186,
+                lng: 79.1319186
               }}
               style={style}
             >
@@ -104,6 +103,5 @@ class Footer extends Component {
 }
 
 export default GoogleApiWrapper({
-    API_KEY,
-    version: "3.49"
+    version: "3"
 })(Footer);
