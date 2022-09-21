@@ -44,8 +44,7 @@ class Skills extends Component {
                     <h3>Technical Skills</h3> 
                     <Pie 
                         data={state}
-                        height="30px"
-                        width="100"
+                        height={100}
                         options={{
                             legend: {
                                 display: true,
@@ -55,6 +54,7 @@ class Skills extends Component {
                                     fontStyle: 'bold',
                                 },
                             },
+                            responsive: true,
                             plugins: {
                                 datalabels: {
                                     display: true,

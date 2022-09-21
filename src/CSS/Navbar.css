@@ -7,6 +7,7 @@ nav {
 .nav-wrap {
     font: 12.5px 'Raleway',sans-serif;
     font-weight: bolder;
+    font-kerning: none;
     width: 100%;
     cursor: default;
     text-transform: uppercase;
@@ -34,12 +35,12 @@ nav {
 ul {
     font-size: 100%;
     transition: background-color .5s linear;
-
 }
 
 ul.nav {
+    display: inline-block;
     min-height: 48px;
-    width: auto;
+    width: 100%;
     text-align: center;
 }
 
@@ -48,6 +49,9 @@ ul.nav li {
     list-style: none;
     height: 48px;
     display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-left: -4px;
 }
 
 .nav a:hover {
@@ -99,17 +103,5 @@ ul.nav a {
 
     .nav-wrap {
         white-space: nowrap;
-    }
-
-    .nav-wrap ul {
-        display: inline-block;
-        width: 100%;
-    }
-
-    .nav-wrap li {
-        display: inline-block;
-        width: 33%;
-        text-align: center;
-        margin-left: -4px;
     }
 }

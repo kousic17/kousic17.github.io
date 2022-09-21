@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Fade } from "react-reveal";
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class Footer extends Component {
   render() {
@@ -14,6 +15,7 @@ class Footer extends Component {
           <h1 className="fhead">GET IN TOUCH</h1>
           <div className="map">
             <Map
+              googleMapURL = {`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&v=3.exp&libraries=geometry,drawing,places`}
               google={this.props.google}
               zoom={10}
               initialCenter={{
