@@ -104,4 +104,8 @@ ul.nav a {
     .nav-wrap {
         white-space: nowrap;
     }
+
+    .nav-wrap a {
+        margin-left: -13px;
+    }
 }

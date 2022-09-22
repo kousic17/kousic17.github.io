@@ -7,11 +7,11 @@ class About extends Component {
             <div className="about">
                 <Fade bottom>
                 <h1 className="subtopic">About Me</h1>
-                     <p>Having good working experience on products as a Software Development Trainee while also having experience on Quality Control throughout my career. 
-                        What's crucial for me when starting one is to get very clear on the goals right at the start and then create a plan with milestones. 
-                        So, in case there are any significant issues during production, I'll still have a better amount of time to complete before the deadline. 
-                        I always typically break down larger tasks into smaller chunks, which will be easier for me to know where to start. 
-                        I also played some important roles in the aspect of software development.
+                     <p>Having a good work experience on product development as a Software Development Trainee, whereas having a relevant experience on Quality 
+                        Control field as well throughout my career. What's crucial for me when starting one is to get very clear on the goals right at the start and then
+                        create a plan with milestones. So, in case there are any significant issues during production, I'll still have a better amount of time to 
+                        complete before the deadline. I am always typically break down larger tasks into smaller chunks, which will be easier for me to know where to 
+                        start. I have also played some important roles in the aspect of software development.
                         <br/>
                         <br/>
                         <span>•</span>UX design depends on understanding customer needs, goals, motivations, and behaviors. So, I communicate with the users, technical 

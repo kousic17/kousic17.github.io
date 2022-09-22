@@ -16,7 +16,7 @@ class Education extends Component {
                 <p className="course">Completed B.Tech in Information Technology from SASTRA University ranked by global ranking agencies such as Times Higher
                                     Education and QS. Shown keen interest in several major courses like C, C++, Computer Networks, Cryptography & Network Security, 
                                     Web Services etc,. I completed project in <i>"An Improved Overlapping K-Mean Clustering Method For Medical Applications"</i> during final year. 
-                                    Also participated in college culturals held in the year 2015.</p>
+                                    I had also participated in college culturals held in the year 2015.</p>
                 
                 <div className="head1">Diploma in Computer Technology</div>
                 <p className="dip">
