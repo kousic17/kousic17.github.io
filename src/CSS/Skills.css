@@ -15,6 +15,10 @@
     float: left;
 }
 
+.chartjs-render-monitor {
+    margin-top: 20px;
+}
+
 h3 {
     margin: 80px 0 10px 200px;
 }
