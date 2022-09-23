@@ -27,7 +27,7 @@ const state = {
                 "#E5E5E5",
                 "#E5E5E5"
             ],
-            data: [45, 45, 30, 30],
+            data: [1, 1, 1, 1],
             hoverBorderWidth: 4,
             borderWidth: 1.8,
         }
@@ -60,13 +60,13 @@ class Skills extends Component {
                             plugins: {
                                 datalabels: {
                                     display: true,
-                                    color: 'white',
+                                    color: '#FFFCED',
                                     formatter: function(value, ctx) {
                                         let datasets = ctx.chart.data.datasets;
                                         if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
                                             let sum = datasets[0].data.reduce((a, b) => a + b, 0);
-                                            let percentage = Math.round((value/sum)*100) + '%';
-                                            return percentage;
+                                            let percentage = (value/sum) * 100;
+                                            return parseInt(percentage) + '%';
                                         } 
                                     },
                                 },
