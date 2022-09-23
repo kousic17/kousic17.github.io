@@ -1,18 +1,26 @@
 {
-  "main.css": "/static/css/main.6310fd2e.chunk.css",
-  "main.js": "/static/js/main.74f4f441.chunk.js",
-  "main.js.map": "/static/js/main.74f4f441.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-  "static/css/2.93587f6e.chunk.css": "/static/css/2.93587f6e.chunk.css",
-  "static/js/2.d25003da.chunk.js": "/static/js/2.d25003da.chunk.js",
-  "static/js/2.d25003da.chunk.js.map": "/static/js/2.d25003da.chunk.js.map",
-  "index.html": "/index.html",
-  "precache-manifest.8488634f9a70733d6a1c7fedad2798ce.js": "/precache-manifest.8488634f9a70733d6a1c7fedad2798ce.js",
-  "service-worker.js": "/service-worker.js",
-  "static/css/2.93587f6e.chunk.css.map": "/static/css/2.93587f6e.chunk.css.map",
-  "static/css/main.6310fd2e.chunk.css.map": "/static/css/main.6310fd2e.chunk.css.map",
-  "static/media/Kousic.jpg": "/static/media/Kousic.f043c15d.jpg",
-  "static/media/font-awesome.min.css": "/static/media/fontawesome-webfont.fee66e71.woff",
-  "static/media/App.css": "/static/media/img.285befde.jpg"
+  "files": {
+    "main.css": "/static/css/main.743e8eed.chunk.css",
+    "main.js": "/static/js/main.1c1324d5.chunk.js",
+    "main.js.map": "/static/js/main.1c1324d5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9f33c190.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9f33c190.js.map",
+    "static/css/2.f78674c2.chunk.css": "/static/css/2.f78674c2.chunk.css",
+    "static/js/2.fe0f5ffb.chunk.js": "/static/js/2.fe0f5ffb.chunk.js",
+    "static/js/2.fe0f5ffb.chunk.js.map": "/static/js/2.fe0f5ffb.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.f78674c2.chunk.css.map": "/static/css/2.f78674c2.chunk.css.map",
+    "static/css/main.743e8eed.chunk.css.map": "/static/css/main.743e8eed.chunk.css.map",
+    "static/js/2.fe0f5ffb.chunk.js.LICENSE.txt": "/static/js/2.fe0f5ffb.chunk.js.LICENSE.txt",
+    "static/media/Kousic.81f88547.jpg": "/static/media/Kousic.81f88547.jpg",
+    "static/media/font-awesome.min.css": "/static/media/fontawesome-webfont.f691f37e.woff",
+    "static/media/App.css": "/static/media/img.943226a2.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9f33c190.js",
+    "static/css/2.f78674c2.chunk.css",
+    "static/js/2.fe0f5ffb.chunk.js",
+    "static/css/main.743e8eed.chunk.css",
+    "static/js/main.1c1324d5.chunk.js"
+  ]
 }
