@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kousic Srinivasan — UX Designer</title>
+<meta name="description" content="UX designer based in India. Selected case studies and side projects." />
+<meta property="og:title" content="Kousic Srinivasan — UX Designer" />
+<meta property="og:description" content="Selected UX case studies and side projects." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="scroll-progress"><div id="scrollBar"></div></div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">K</span>
+      <span class="brand-text">
+        <span class="brand-name">KOUSIC SRINIVASAN</span>
+        <span class="brand-sub">UX Designer · India</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#lab">Lab</a>
+      <a href="#process">Process</a>
+      <a href="#services">Services</a>
+      <a href="#changelog">Changelog</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-pill">Let's talk <span class="arr">↗</span></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="eyebrow">
+      <span class="chip"><span class="dot"></span> Open to UX roles · 2026</span>
+      <span class="rule"></span>
+      Based in India · happy to relocate
+    </div>
+    <h1 class="display hero-title reveal">
+      <span>Design that</span>
+      <span><span class="stroke-text">respects</span> your time.</span>
+    </h1>
+    <div class="hero-grid">
+      <div>
+        <p class="lead">
+          I'm <span class="fg">Kousic</span>. I design simple, usable interfaces.
+          Before design, I worked in game testing and medical billing — roles
+          that taught me how software gets in people's way.
+        </p>
+        <div class="cta-row">
+          <a href="#work" class="btn btn-light btn-pill">See the work <span class="arr">↗</span></a>
+          <a href="Resume - Kousic Srinivasan.pdf" target="_blank" rel="noreferrer" class="btn btn-ghost btn-pill">📄 Resume</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div><div class="display stat-n">2</div><div class="stat-l">Case studies</div></div>
+        <div><div class="display stat-n">6</div><div class="stat-l">React side projects</div></div>
+        <div><div class="display stat-n">3+</div><div class="stat-l">Years in tech</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee" id="marquee"></div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section id="about" class="section section-border">
+  <div class="container two-col">
+    <div class="col-3"><div class="eyebrow-tag">(01) — The thesis</div></div>
+    <div class="col-9 reveal">
+      <p class="display big-quote">I design products that <span class="accent">get out of the way</span>.</p>
+      <p class="muted mt-10">A short look at recent work — the problem, the approach, and what changed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow-tag">(02) — Selected releases</div>
+        <h2 class="display section-title">Case studies.</h2>
+      </div>
+      <div class="eyebrow-tag hide-sm">2 selected projects</div>
+    </div>
+    <div class="work-list" id="workList"></div>
+  </div>
+</section>
+
+<!-- LAB -->
+<section id="lab" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow-tag">(03) — Lab</div>
+        <h2 class="display section-title">Other projects.</h2>
+        <p class="muted mt-4 maxw">Small React builds — quick studies in components, fetching, filtering and state.</p>
+      </div>
+    </div>
+    <div class="lab-grid" id="labGrid"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="section section-band">
+  <div class="container two-col">
+    <div class="col-4">
+      <div class="eyebrow-tag">(04) — How it ships</div>
+      <h2 class="display section-title">Four steps,<br/> on <span class="accent">repeat</span>.</h2>
+      <p class="muted mt-6 maxw-sm">The same loop, every project.</p>
+    </div>
+    <div class="col-8">
+      <div class="process-grid" id="processGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="container two-col">
+    <div class="col-4">
+      <div class="eyebrow-tag">(05) — Capabilities</div>
+      <h2 class="display section-title">From research<br/> to <span class="accent">release</span>.</h2>
+    </div>
+    <div class="col-8">
+      <ul class="services-list" id="servicesList"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- CHANGELOG -->
+<section id="changelog" class="section section-band">
+  <div class="container two-col">
+    <div class="col-4">
+      <div class="eyebrow-tag">✦ (06) — Changelog</div>
+      <h2 class="display section-title">Shipping <span class="accent">notes</span>.</h2>
+      <p class="muted mt-6 maxw-sm">This site is versioned. Every meaningful change gets a release.</p>
+    </div>
+    <div class="col-8">
+      <ol class="timeline" id="timeline"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact">
+  <div class="contact-glow"></div>
+  <div class="container">
+    <div class="eyebrow-tag">(07) — Contact</div>
+    <h2 class="display contact-title">Hiring for a<br/><span class="accent">UX</span> role?</h2>
+    <div class="contact-grid">
+      <p class="lead">I'm open to UX roles — full-time, contract, or paid internship. Tell me what you're building. I usually reply within a day.</p>
+      <div class="contact-cards">
+        <a href="mailto:kousic.it@gmail.com" class="card card-row">
+          <div class="card-row-left">
+            <span class="icon">✉</span>
+            <div>
+              <div class="stat-l">Email · fastest</div>
+              <div class="display contact-email">kousic.it@gmail.com</div>
+            </div>
+          </div>
+          <span class="arr">↗</span>
+        </a>
+        <div class="contact-row-2">
+          <a href="https://in.linkedin.com/in/kousic-srinivasan-b6876477" target="_blank" rel="noreferrer" class="card card-row sm">
+            <span class="card-row-left"><span class="icon">in</span><span class="mono small">LinkedIn</span></span>
+            <span class="arr">↗</span>
+          </a>
+          <a href="https://www.github.com/kousic17" target="_blank" rel="noreferrer" class="card card-row sm">
+            <span class="card-row-left"><span class="icon">GH</span><span class="mono small">Github</span></span>
+            <span class="arr">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-row">
+    <div class="mono small">© <span id="year"></span> Kousic Srinivasan</div>
+    <div class="mono small">Based in India · Available worldwide</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
