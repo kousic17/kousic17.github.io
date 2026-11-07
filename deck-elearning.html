@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teenager E-Learning Platform (Presentation Deck)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a0a0c;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 16px 20px 40px;
+    }
+    .deck-top-bar {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .top-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .deck-top-bar a {
+      color: #e65c00;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+      font-size: 15px;
+    }
+    .deck-top-bar a:hover { text-decoration: underline; }
+    .deck-title {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1.2px;
+      font-size: 16px;
+      color: #fff;
+    }
+    .view-switcher {
+      display: inline-flex;
+      background: rgba(255,255,255,0.08);
+      padding: 3px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .view-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .view-btn.active {
+      background: #e65c00;
+      color: #fff;
+    }
+    .slide-counter {
+      font-family: 'Martel Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 600;
+    }
+
+    /* Stage */
+    .slide-stage {
+      width: 100%;
+      max-width: 1100px;
+      aspect-ratio: 16 / 9;
+      background: #fff;
+      color: #202124;
+      border-radius: 8px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.85);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 44px 52px;
+      flex-direction: column;
+      position: relative;
+      background: #fff;
+      color: #202124;
+      overflow: hidden;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-header-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: #202124;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .slide-footer-logo {
+      position: absolute;
+      bottom: 20px;
+      right: 28px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #70757a;
+    }
+
+    /* Color dividers */
+    .slide.bg-blue { background: #4285f4; color: #fff; justify-content: center; }
+    .slide.bg-red { background: #ea4335; color: #fff; justify-content: center; }
+    .slide.bg-yellow { background: #fbbc04; color: #202124; justify-content: center; }
+    .slide.bg-green { background: #34a853; color: #fff; justify-content: center; }
+    .slide.bg-dark { background: #5f6368; color: #fff; justify-content: center; }
+    .divider-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .divider-title {
+      font-size: 46px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .divider-list {
+      list-style: none;
+      font-size: 18px;
+      line-height: 2;
+    }
+    .divider-list li::before {
+      content: '• ';
+      margin-right: 8px;
+    }
+
+    /* Original PDF view */
+    .slide-original-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+      display: none;
+    }
+    .slide-original-img.active {
+      display: block;
+    }
+
+    /* Layout utilities */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      height: calc(100% - 50px);
+      align-items: center;
+    }
+    .lead-p {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #3c4043;
+      margin-bottom: 12px;
+    }
+    .lead-p strong {
+      color: #202124;
+    }
+    .card-finding {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      border: 1px solid #e8eaed;
+    }
+    .badge-chip {
+      display: inline-block;
+      background: #e65c00;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Image frames */
+    .img-showcase {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      max-height: 380px;
+    }
+    .img-showcase img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      border: 1px solid #e0e0e0;
+      background: #fff;
+    }
+    .wireframe-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 100%;
+      justify-content: center;
+    }
+    .wireframe-gallery img {
+      width: 100%;
+      max-height: 115px;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 1px solid #e0e0e0;
+      background: #fff;
+    }
+
+    /* Progress bar */
+    .progress-bar-track {
+      width: 100%;
+      max-width: 1100px;
+      height: 4px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 2px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: #e65c00;
+      border-radius: 2px;
+      transition: width 0.25s ease;
+    }
+
+    /* Controls */
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .btn-ctrl {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 9px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Martel Sans', sans-serif;
+      transition: all 0.2s;
+    }
+    .btn-ctrl:hover {
+      background: #e65c00;
+      border-color: #e65c00;
+    }
+    .btn-ctrl:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    .btn-fullscreen {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+    .btn-fullscreen:hover {
+      background: #e65c00;
+      border-color: #e65c00;
+    }
+
+    /* Thumbnails */
+    .thumb-strip {
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 14px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+      scrollbar-color: #e65c00 #111;
+    }
+    .thumb-strip::-webkit-scrollbar { height: 4px; }
+    .thumb-strip::-webkit-scrollbar-track { background: #111; }
+    .thumb-strip::-webkit-scrollbar-thumb { background: #e65c00; border-radius: 2px; }
+    .thumb {
+      flex-shrink: 0;
+      width: 88px;
+      height: 50px;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.45;
+      transition: all 0.2s;
+      background: #222;
+    }
+    .thumb.active {
+      border-color: #e65c00;
+      opacity: 1;
+    }
+    .thumb:hover { opacity: 0.85; }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .kbd-hint {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 10px;
+    }
+    .kbd-hint kbd {
+      background: rgba(255,255,255,0.12);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="deck-top-bar">
+    <div class="top-left">
+      <a href="index.html">← BACK TO PORTFOLIO</a>
+      <div class="deck-title">TEENAGER E-LEARNING PLATFORM</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div class="view-switcher">
+        <button class="view-btn active" id="btn-revamped">✨ Revamped (Filled + Designs)</button>
+        <button class="view-btn" id="btn-original">📄 Original Google Slides</button>
+      </div>
+      <div class="slide-counter" id="slide-num">1 / 25</div>
+    </div>
+  </div>
+
+  <div class="slide-stage" id="stage">
+
+    <!-- ========== MODE 1: REVAMPED HTML SLIDES (FILLED TEXT + REAL WIREFRAMES) ========== -->
+    <div id="deck-revamped" style="width:100%; height:100%;">
+
+      <!-- Slide 1: Cover -->
+      <div class="slide bg-blue active">
+        <h1 style="font-size: 52px; font-weight: 700; margin-bottom: 12px; line-height: 1.1;">Teenager E-Learning Platform</h1>
+        <p style="font-size: 22px; opacity: 0.95; margin-bottom: 36px;">UX/UI Design Case Study</p>
+        <div style="font-size: 18px; font-weight: 600; border-top: 2px solid rgba(255,255,255,0.4); padding-top: 16px; max-width: 440px;">Kousic Srinivasan</div>
+        <div class="slide-footer-logo" style="color: #fff;">Google UX Design Certificate</div>
+      </div>
+
+      <!-- Slide 2: Project Overview -->
+      <div class="slide">
+        <h2 class="slide-header-title">Project overview</h2>
+        <div class="grid-2">
+          <div>
+            <p class="lead-p"><strong>The product:</strong><br>Online E-learning platform for teenagers holding a range of in-person courses and workshops at various locations.</p>
+            <p class="lead-p"><strong>Project duration:</strong><br>3-week design exercise to build an engaging digital workshop solution for students.</p>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/elearning-slides/img-008.png" alt="Platform Preview Mockup">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 3: Problem & Goal -->
+      <div class="slide">
+        <h2 class="slide-header-title">Project overview</h2>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding" style="border-left: 4px solid #ea4335;">
+            <h3 style="font-size: 17px; color: #ea4335; margin-bottom: 8px;">The problem:</h3>
+            <p class="lead-p" style="font-size: 14px;">Many teenagers are unable to attend in-person workshop camps due to geographic distance and high cost, but still want to take part in hands-on coding courses without feeling isolated.</p>
+          </div>
+          <div class="card-finding" style="border-left: 4px solid #4285f4;">
+            <h3 style="font-size: 17px; color: #4285f4; margin-bottom: 8px;">The goal:</h3>
+            <p class="lead-p" style="font-size: 14px;">Provide an engaging online learning environment with collaborative peer support. Measured by tracking weekly user logins and active student participation.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 4: Role & Responsibilities -->
+      <div class="slide">
+        <h2 class="slide-header-title">Project overview</h2>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding">
+            <h3 style="font-size: 17px; margin-bottom: 8px; color:#202124;">My role:</h3>
+            <p class="lead-p">Lead UX Designer responsible for designing the online solution for workshop camps.</p>
+          </div>
+          <div class="card-finding">
+            <h3 style="font-size: 17px; margin-bottom: 8px; color:#202124;">Responsibilities:</h3>
+            <p class="lead-p">User research, empathy mapping, personas, information architecture, digital mockups, and prototyping.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 5: Section 1 -->
+      <div class="slide bg-red">
+        <div class="divider-content">
+          <h2 class="divider-title">Understanding<br>the user</h2>
+          <ul class="divider-list">
+            <li>User research</li>
+            <li>Personas</li>
+            <li>Problem statements</li>
+            <li>User journey maps</li>
+          </ul>
+        </div>
+        <div class="slide-footer-logo" style="color: #fff;">Google</div>
+      </div>
+
+      <!-- Slide 6: Research Summary -->
+      <div class="slide">
+        <h2 class="slide-header-title">User research: summary</h2>
+        <div style="max-width: 780px; margin: 30px auto; text-align: center;">
+          <p class="lead-p" style="font-size: 16.5px; line-height: 1.8;">
+            I conducted interviews with prospective students curious about learning technology and created empathy maps to understand learning barriers.
+          </p>
+          <p class="lead-p" style="font-size: 16.5px; line-height: 1.8; color: #5f6368; margin-top: 14px;">
+            During research, it was discovered that <strong>70% of participants</strong> were interested in interactive online workshops to get hands-on practice, rather than solitary video lectures.
+          </p>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 7: Pain Points -->
+      <div class="slide">
+        <h2 class="slide-header-title">User research: pain points</h2>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px;">
+          <div class="card-finding" style="text-align: center;">
+            <div style="width: 30px; height: 30px; background: #ea4335; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: 700;">1</div>
+            <h4 style="margin-bottom: 6px; font-size:14px;">Boring Content</h4>
+            <p style="font-size: 12.5px; color: #5f6368; line-height: 1.45;">Lectures feel dry and disengaging without interactive practice.</p>
+          </div>
+          <div class="card-finding" style="text-align: center;">
+            <div style="width: 30px; height: 30px; background: #ea4335; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: 700;">2</div>
+            <h4 style="margin-bottom: 6px; font-size:14px;">Unclear Guidance</h4>
+            <p style="font-size: 12.5px; color: #5f6368; line-height: 1.45;">Lack of clear explanations when students get stuck on coding errors.</p>
+          </div>
+          <div class="card-finding" style="text-align: center;">
+            <div style="width: 30px; height: 30px; background: #ea4335; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: 700;">3</div>
+            <h4 style="margin-bottom: 6px; font-size:14px;">Student Profiles</h4>
+            <p style="font-size: 12.5px; color: #5f6368; line-height: 1.45;">Desire for public student profile cards to showcase milestones.</p>
+          </div>
+          <div class="card-finding" style="text-align: center;">
+            <div style="width: 30px; height: 30px; background: #ea4335; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: 700;">4</div>
+            <h4 style="margin-bottom: 6px; font-size:14px;">Course Ratings</h4>
+            <p style="font-size: 12.5px; color: #5f6368; line-height: 1.45;">Need for peer reviews to evaluate which workshops are worth taking.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 8: Persona -->
+      <div class="slide">
+        <h2 class="slide-header-title">Persona: Darren Conner</h2>
+        <div class="grid-2">
+          <div>
+            <div style="display:flex; align-items:center; gap: 14px; margin-bottom: 14px;">
+              <img src="assets/elearning-slides/img-021.png" alt="Darren Conner Avatar" style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid #ea4335;">
+              <div>
+                <strong style="font-size:17px; color:#202124;">Darren Conner</strong>
+                <p style="font-size:12.5px; color:#5f6368;">Age: 15 · Birmingham, USA · High School Student</p>
+              </div>
+            </div>
+            <p class="lead-p"><strong>Problem statement:</strong><br>Darren is a 15-year-old student who wants to learn coding online with engaging support from peers because his parents cannot afford in-person camps.</p>
+            <div class="card-finding" style="font-style: italic; font-size: 13px; color:#5f6368;">
+              “I would like to learn to code while having engaging conversations with my friends.”
+            </div>
+          </div>
+          <div>
+            <div class="card-finding">
+              <strong style="color:#202124;">Goals:</strong>
+              <p style="font-size:13px; color:#5f6368; margin-top:4px;">• Learn to code in high-demand languages<br>• Have engaging conversations with friends while learning</p>
+              <br>
+              <strong style="color:#202124;">Frustrations:</strong>
+              <p style="font-size:13px; color:#5f6368; margin-top:4px;">• Less engaging and boring solitary lectures<br>• In-person tech workshops are unaffordable</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 9: User Journey Map -->
+      <div class="slide">
+        <h2 class="slide-header-title">User journey map</h2>
+        <p class="lead-p" style="font-size: 13.5px; margin-bottom: 14px;">Goal: Support students in completing interactive coding lessons while conversing with classmates.</p>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; font-size: 11px;">
+          <div class="card-finding"><strong>1. Login</strong><br><br>Quick sign-in with student profile card.</div>
+          <div class="card-finding"><strong>2. Search Lessons</strong><br><br>Filter courses by HTML, CSS, JavaScript.</div>
+          <div class="card-finding"><strong>3. Start Video</strong><br><br>Dual-pane interface with synchronized lesson.</div>
+          <div class="card-finding"><strong>4. Play Video</strong><br><br>Subtitles and 1-click community mentor help.</div>
+          <div class="card-finding"><strong>5. Chat With Friends</strong><br><br>Real-time sidebar messaging while watching.</div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 10: Section 2 -->
+      <div class="slide bg-yellow">
+        <div class="divider-content">
+          <h2 class="divider-title" style="color: #202124;">Starting<br>the design</h2>
+          <ul class="divider-list" style="color: #202124;">
+            <li>Paper wireframes</li>
+            <li>Digital wireframes</li>
+            <li>Low-fidelity prototype</li>
+            <li>Usability studies</li>
+          </ul>
+        </div>
+        <div class="slide-footer-logo" style="color: #202124;">Google</div>
+      </div>
+
+      <!-- Slide 11: Paper wireframes (WITH REAL SKETCH IMAGES) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Paper wireframes</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Design Ideation</span>
+            <h4 style="font-size: 16px; margin-bottom: 8px; color:#202124;">Design Model & Accessibility:</h4>
+            <p class="lead-p" style="font-size: 13.5px;">I selected this first design model to make course navigation as accessible and clear as possible. The header introduces persistent search and category tabs, while cards feature estimated completion times to set clear expectations for students.</p>
+          </div>
+          <div class="wireframe-gallery">
+            <img src="assets/elearning-slides/img-028.png" alt="Paper Wireframe 1">
+            <img src="assets/elearning-slides/img-029.png" alt="Paper Wireframe 2">
+            <img src="assets/elearning-slides/img-030.png" alt="Paper Wireframe 3">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 12: Digital wireframes 1 (WITH REAL WIREFRAME IMAGE) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Digital wireframes</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Screen 1</span>
+            <h4 style="font-size: 16px; margin-bottom: 8px; color:#202124;">Catalog Navigation:</h4>
+            <p class="lead-p" style="font-size: 13.5px;">I designed the course catalog grid with prominent filter tabs (All Courses, HTML, CSS, JavaScript, Web Design). Based on user research, clear lesson summaries and estimated completion times prevent students from abandoning courses prematurely.</p>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/elearning-slides/img-033.png" alt="Course Grid Wireframe">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 13: Digital wireframes 2 (WITH REAL WIREFRAME IMAGE) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Digital wireframes</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Screen 2</span>
+            <h4 style="font-size: 16px; margin-bottom: 8px; color:#202124;">Student Profile Dashboard:</h4>
+            <p class="lead-p" style="font-size: 13.5px;">This wireframe focuses on the student profile dashboard, giving learners a dedicated space to review enrolled workshops, track skill progression, and display earned badges to motivate continued learning.</p>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/elearning-slides/img-036.png" alt="Student Profile Dashboard Wireframe">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 14: Low-fi Prototype (WITH REAL PROTOTYPE SCREEN) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Low-fidelity prototype</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Interactive Wireframes</span>
+            <p class="lead-p" style="font-size: 14px;">The low-fidelity prototype mapped out course selection, dual-pane playback, and chat transitions to validate core user flow with teenage students.</p>
+            <div style="margin-top: 18px;">
+              <span style="font-size:14px; color:#1a73e8; font-weight:600;">Online E-learning Platform Interactive Flow</span>
+            </div>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/elearning-slides/img-039.png" alt="Low-Fidelity Prototype Flow">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 15: Usability Findings -->
+      <div class="slide">
+        <h2 class="slide-header-title">Usability study: findings</h2>
+        <p class="lead-p" style="font-size: 14px; margin-bottom: 16px;">I conducted usability studies with teenage students to evaluate lesson engagement, video player clarity, and ease of seeking peer help.</p>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding" style="border-left: 4px solid #ea4335;">
+            <h4 style="color:#ea4335; margin-bottom: 8px; font-size:15px;">Key Observations:</h4>
+            <p style="font-size: 13.5px; line-height: 1.6; color:#3c4043;">Self-motivation is the key to keeping teenager attention. Students need to be engaged by subjects they care about and be provided with peer collaboration tools to continue succeeding.</p>
+          </div>
+          <div class="card-finding" style="border-left: 4px solid #34a853;">
+            <h4 style="color:#34a853; margin-bottom: 8px; font-size:15px;">Quantitative Insight:</h4>
+            <p style="font-size: 13.5px; line-height: 1.6; color:#3c4043;"><strong>70% of survey participants</strong> confirmed they preferred hands-on interactive workshops. While students concentrate well alone, getting feedback from motivated peers drastically increased course completion.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 16: Section 3 -->
+      <div class="slide bg-green">
+        <div class="divider-content">
+          <h2 class="divider-title">Refining<br>the design</h2>
+          <ul class="divider-list">
+            <li>Mockups</li>
+            <li>High-fidelity prototype</li>
+            <li>Accessibility</li>
+          </ul>
+        </div>
+        <div class="slide-footer-logo" style="color: #fff;">Google</div>
+      </div>
+
+      <!-- Slide 17: Mockup 1 (WITH REAL DUAL-PANE VIDEO & CHAT MOCKUPS) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Mockups: Dual-Pane Video & Live Chat</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Collaborative Player</span>
+            <p class="lead-p"><strong>Synchronized Chat:</strong><br>Users can engage in real-time chat with friends and classmates while watching video lessons simultaneously, eliminating the isolation of solo study.</p>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/elearning-slides/img-046.png" alt="Video Player Screen" style="max-height:165px; width:100%; object-fit:contain;">
+            <img src="assets/elearning-slides/img-047.png" alt="Chat Sidebar Screen" style="max-height:165px; width:100%; object-fit:contain;">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 18: Mockup 2 (WITH REAL COMMUNITY HELP MOCKUPS) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Mockups: Community Help Integration</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Peer Support</span>
+            <p class="lead-p"><strong>Instant Query Resolution:</strong><br>Added a 1-click community help button directly below the lesson video, allowing students to ask mentors specific questions without losing their spot in the course.</p>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/elearning-slides/img-050.png" alt="Community Help Screen 1" style="max-height:165px; width:100%; object-fit:contain;">
+            <img src="assets/elearning-slides/img-051.png" alt="Community Help Screen 2" style="max-height:165px; width:100%; object-fit:contain;">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 19: Mockup 3 (WITH ALL 3 REAL CATALOG & MENTOR MOCKUPS) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Mockups: Catalog, Languages & Mentors</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Complete Platform</span>
+            <p class="lead-p"><strong>Complete Learning Experience:</strong><br>Features technology badge navigation (HTML5, CSS3, JavaScript), personalized progress trackers, and a transparent mentor directory with direct booking options.</p>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px; height:100%; justify-content:center;">
+            <img src="assets/elearning-slides/img-054.png" alt="Catalog Screen" style="max-height:105px; width:100%; object-fit:contain; border-radius:4px; box-shadow:0 2px 8px rgba(0,0,0,0.1); border:1px solid #e0e0e0;">
+            <img src="assets/elearning-slides/img-055.png" alt="Languages Screen" style="max-height:105px; width:100%; object-fit:contain; border-radius:4px; box-shadow:0 2px 8px rgba(0,0,0,0.1); border:1px solid #e0e0e0;">
+            <img src="assets/elearning-slides/img-056.png" alt="Mentors Screen" style="max-height:105px; width:100%; object-fit:contain; border-radius:4px; box-shadow:0 2px 8px rgba(0,0,0,0.1); border:1px solid #e0e0e0;">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 20: Hi-Fi Prototype (WITH REAL ADOBE XD PROTOTYPE HERO) -->
+      <div class="slide">
+        <h2 class="slide-header-title">High-fidelity prototype</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Adobe XD Simulation</span>
+            <p class="lead-p">The high-fidelity Adobe XD prototype provides interactive simulation of video lessons, mentor booking, and responsive tablet interactions.</p>
+            <div style="margin-top: 16px;">
+              <a href="https://xd.adobe.com/view/36b5e057-eb1d-4808-b1ee-b4eb62d27ffa-63e6/" target="_blank" style="display:inline-block; background:#1a73e8; color:#fff; text-decoration:none; padding:10px 18px; border-radius:6px; font-weight:600; font-size:13px;">Launch Interactive Adobe XD Prototype ↗</a>
+            </div>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/elearning-slides/img-059.png" alt="Adobe XD Prototype Mockup" style="max-height:330px;">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 21: Accessibility -->
+      <div class="slide">
+        <h2 class="slide-header-title">Accessibility considerations</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px;">
+          <div class="card-finding" style="border-left: 4px solid #34a853;">
+            <h4 style="margin-bottom:8px; color:#202124;">1. Screen Readers</h4>
+            <p style="font-size: 13px; color: #5f6368; line-height: 1.5;">Descriptive image labels and clean semantic DOM hierarchy throughout.</p>
+          </div>
+          <div class="card-finding" style="border-left: 4px solid #34a853;">
+            <h4 style="margin-bottom:8px; color:#202124;">2. Large Font Scale</h4>
+            <p style="font-size: 13px; color: #5f6368; line-height: 1.5;">Comfortable font sizes for tablet reading without eye strain.</p>
+          </div>
+          <div class="card-finding" style="border-left: 4px solid #34a853;">
+            <h4 style="margin-bottom:8px; color:#202124;">3. Closed Captions</h4>
+            <p style="font-size: 13px; color: #5f6368; line-height: 1.5;">Added closed captions for all video lessons to assist hard-of-hearing students.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 22: Section 4 -->
+      <div class="slide bg-dark">
+        <div class="divider-content">
+          <h2 class="divider-title">Going<br>forward</h2>
+          <ul class="divider-list">
+            <li>Takeaways</li>
+            <li>Next steps</li>
+          </ul>
+        </div>
+        <div class="slide-footer-logo" style="color: #fff;">Google</div>
+      </div>
+
+      <!-- Slide 23: Takeaways -->
+      <div class="slide">
+        <h2 class="slide-header-title">Takeaways</h2>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding">
+            <h4 style="margin-bottom:8px; color:#202124;">Impact:</h4>
+            <p class="lead-p" style="font-size: 13.5px;">Testing with real teenage users revealed that peer encouragement is a critical catalyst for course retention and long-term interest in technical careers.</p>
+          </div>
+          <div class="card-finding">
+            <h4 style="margin-bottom:8px; color:#202124;">What I learned:</h4>
+            <p class="lead-p" style="font-size: 13.5px;">Interviewing younger demographics requires persistent, empathetic questioning to encourage students to open up about hidden frustrations.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 24: Next steps -->
+      <div class="slide">
+        <h2 class="slide-header-title">Next steps</h2>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding">
+            <h4 style="margin-bottom:8px; color:#202124;">1. Extended Usability Studies</h4>
+            <p style="font-size: 13.5px; color: #5f6368; line-height: 1.5;">Conduct further studies across diverse schools to evaluate long-term project submission workflows.</p>
+          </div>
+          <div class="card-finding">
+            <h4 style="margin-bottom:8px; color:#202124;">2. Preventing Featuritis</h4>
+            <p style="font-size: 13.5px; color: #5f6368; line-height: 1.5;">Focus on perfecting core video engagement and peer mentorship before introducing complex community add-ons.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 25: Closing Slide -->
+      <div class="slide">
+        <h2 class="slide-header-title">Let’s connect!</h2>
+        <div style="max-width: 760px; margin: 10px auto; text-align: center;">
+          <p class="lead-p" style="font-size: 15px; line-height: 1.7;">
+            I'm Kousic Srinivasan — UI/UX Designer, QA Alum, and Front-End Developer. I believe good design must be useful, enjoyable, and accessible to every user regardless of ability, background, or device.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 20px; margin-top: 24px; font-size: 13.5px; font-weight: 600; flex-wrap: wrap;">
+            <span>Mail: <a href="mailto:kousic.it@gmail.com" style="color:#1a73e8; text-decoration:none;">kousic.it@gmail.com</a></span>
+            <span>Mobile: +91-7540054426</span>
+            <a href="https://in.linkedin.com/in/kousic-srinivas-b6876477" target="_blank" style="color:#1a73e8; text-decoration:none;">LinkedIn ↗</a>
+            <a href="https://www.github.com/kousic17" target="_blank" style="color:#1a73e8; text-decoration:none;">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+    </div>
+
+    <!-- ========== MODE 2: ORIGINAL GOOGLE SLIDES (PDF PAGES) ========== -->
+    <div id="deck-original" style="width:100%; height:100%; display:none;">
+      <img src="assets/elearning-pages/slide-01.png" alt="Slide 1" class="slide-original-img active">
+      <img src="assets/elearning-pages/slide-02.png" alt="Slide 2" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-03.png" alt="Slide 3" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-04.png" alt="Slide 4" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-05.png" alt="Slide 5" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-06.png" alt="Slide 6" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-07.png" alt="Slide 7" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-08.png" alt="Slide 8" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-09.png" alt="Slide 9" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-10.png" alt="Slide 10" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-11.png" alt="Slide 11" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-12.png" alt="Slide 12" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-13.png" alt="Slide 13" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-14.png" alt="Slide 14" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-15.png" alt="Slide 15" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-16.png" alt="Slide 16" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-17.png" alt="Slide 17" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-18.png" alt="Slide 18" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-19.png" alt="Slide 19" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-20.png" alt="Slide 20" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-21.png" alt="Slide 21" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-22.png" alt="Slide 22" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-23.png" alt="Slide 23" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-24.png" alt="Slide 24" class="slide-original-img">
+      <img src="assets/elearning-pages/slide-25.png" alt="Slide 25" class="slide-original-img">
+    </div>
+
+  </div>
+
+  <div class="progress-bar-track">
+    <div class="progress-bar-fill" id="progress" style="width: 4%"></div>
+  </div>
+
+  <div class="deck-controls">
+    <button class="btn-ctrl" id="prev-btn" disabled>← Previous</button>
+    <button class="btn-ctrl" id="next-btn">Next →</button>
+    <button class="btn-fullscreen" id="fs-btn" title="Fullscreen">⛶</button>
+  </div>
+
+  <div class="thumb-strip" id="thumbs"></div>
+
+  <div class="kbd-hint">
+    <kbd>←</kbd> <kbd>→</kbd> navigate &nbsp;·&nbsp; <kbd>Space</kbd> next &nbsp;·&nbsp; <kbd>F</kbd> fullscreen
+  </div>
+
+  <script>
+    let current = 0;
+    const total = 25;
+    let mode = 'revamped'; // 'revamped' or 'original'
+
+    const revampedSlides = document.querySelectorAll('#deck-revamped .slide');
+    const originalSlides = document.querySelectorAll('#deck-original .slide-original-img');
+    const counter = document.getElementById('slide-num');
+    const progress = document.getElementById('progress');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const thumbsEl = document.getElementById('thumbs');
+    const stage = document.getElementById('stage');
+
+    const btnRevamped = document.getElementById('btn-revamped');
+    const btnOriginal = document.getElementById('btn-original');
+    const deckRevamped = document.getElementById('deck-revamped');
+    const deckOriginal = document.getElementById('deck-original');
+
+    // Build thumbnail strip using original page images
+    for (let i = 0; i < total; i++) {
+      const pad = String(i + 1).padStart(2, '0');
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb' + (i === 0 ? ' active' : '');
+      thumb.innerHTML = `<img src="assets/elearning-pages/slide-${pad}.png" alt="Slide ${i+1}">`;
+      thumb.addEventListener('click', () => goTo(i));
+      thumbsEl.appendChild(thumb);
+    }
+
+    function goTo(idx) {
+      if (mode === 'revamped') {
+        revampedSlides[current].classList.remove('active');
+        current = idx;
+        revampedSlides[current].classList.add('active');
+      } else {
+        originalSlides[current].classList.remove('active');
+        current = idx;
+        originalSlides[current].classList.add('active');
+      }
+
+      document.querySelectorAll('.thumb').forEach((t, i) => {
+        t.classList.toggle('active', i === current);
+      });
+
+      counter.textContent = `${current + 1} / ${total}`;
+      progress.style.width = `${((current + 1) / total) * 100}%`;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === total - 1;
+
+      const activeThumb = document.querySelectorAll('.thumb')[current];
+      if (activeThumb) {
+        activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+
+    prevBtn.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
+    nextBtn.addEventListener('click', () => { if (current < total - 1) goTo(current + 1); });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        if (current < total - 1) goTo(current + 1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (current > 0) goTo(current - 1);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      }
+    });
+
+    // View switchers
+    btnRevamped.addEventListener('click', () => {
+      if (mode === 'revamped') return;
+      mode = 'revamped';
+      btnRevamped.classList.add('active');
+      btnOriginal.classList.remove('active');
+      deckRevamped.style.display = 'block';
+      deckOriginal.style.display = 'none';
+      revampedSlides.forEach((s, i) => s.classList.toggle('active', i === current));
+    });
+
+    btnOriginal.addEventListener('click', () => {
+      if (mode === 'original') return;
+      mode = 'original';
+      btnOriginal.classList.add('active');
+      btnRevamped.classList.remove('active');
+      deckOriginal.style.display = 'block';
+      deckRevamped.style.display = 'none';
+      originalSlides.forEach((s, i) => s.classList.toggle('active', i === current));
+    });
+
+    // Fullscreen
+    document.getElementById('fs-btn').addEventListener('click', toggleFullscreen);
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        stage.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>

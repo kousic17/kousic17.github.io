@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kousic Srinivasan — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #111827;
+      --text-muted: #374151;
+      --border: #d1d5db;
+      --bg-bar: #f3f4f6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+      color: var(--text);
+      background: #e5e7eb;
+      line-height: 1.45;
+      font-size: 13.5px;
+      padding: 30px 15px;
+    }
+    .resume-sheet {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 44px 50px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-radius: 4px;
+    }
+    .header-name {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .header-contact {
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      word-spacing: 1px;
+    }
+    .header-contact a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .header-contact a:hover {
+      text-decoration: underline;
+    }
+    .sec-banner {
+      background: var(--bg-bar);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+    .summary-p {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+    .skills-row {
+      font-size: 12.5px;
+      margin-bottom: 4px;
+      color: var(--text-muted);
+    }
+    .skills-row strong {
+      color: var(--text);
+    }
+    .exp-item {
+      margin-bottom: 14px;
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .exp-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .exp-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .bullet-list li {
+      position: relative;
+      padding-left: 14px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+      line-height: 1.45;
+    }
+    .bullet-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--text);
+      font-weight: bold;
+    }
+    .bullet-list li strong {
+      color: var(--text);
+    }
+    .print-actions {
+      max-width: 820px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-print {
+      background: #111827;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-back {
+      color: #374151;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .resume-sheet { box-shadow: none; padding: 0; }
+      .print-actions { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-actions">
+    <a href="index.html" class="btn-back">← Back to Portfolio</a>
+    <div>
+      <a href="assets/resume.pdf" download class="btn-print" style="margin-right: 8px;">Download PDF</a>
+      <button onclick="window.print()" class="btn-print">Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <div class="resume-sheet">
+    <h1 class="header-name">KOUSIC SRINIVASAN</h1>
+    <div class="header-contact">
+      Thanjavur, Tamil Nadu &nbsp;|&nbsp; +91-7540054426 &nbsp;|&nbsp; <a href="mailto:kousic.it@gmail.com">kousic.it@gmail.com</a> &nbsp;|&nbsp; <a href="https://linkedin.com/in/kousic-srinivas-b6876477" target="_blank">linkedin.com/in/kousic-srinivas-b6876477</a> &nbsp;|&nbsp; <a href="https://github.com/kousic17" target="_blank">github.com/kousic17</a>
+    </div>
+
+    <!-- Summary -->
+    <div class="sec-banner">Professional Summary</div>
+    <p class="summary-p">
+      IT engineering graduate (B.Tech IT) transitioning into UX/UI Design. Combines a solid understanding of front-end web layouts (HTML, CSS, JavaScript) with practical experience in Software Testing (QA) and Business Operations. Skilled at identifying interface bugs, mapping out clear user steps, and applying user-centered design frameworks from the Google UX Design Certificate to build clean, functional digital products.
+    </p>
+
+    <!-- Skills -->
+    <div class="sec-banner">Skills</div>
+    <div class="skills-row">
+      <strong>UX/UI Design:</strong> Wireframing, High-Fidelity Mockups, Prototyping, User Flow Design, Usability Testing, User Research.
+    </div>
+    <div class="skills-row">
+      <strong>Tools & Code:</strong> Figma, JIRA Bug Tracking, HTML5, CSS3, JavaScript.
+    </div>
+
+    <!-- Work Experience -->
+    <div class="sec-banner">Work Experience</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">HAMLY BUSINESS SOLUTIONS | Process Associate</span>
+        <span class="exp-date">Mar 2024 – Dec 2025</span>
+      </div>
+      <ul class="bullet-list">
+        <li>Managed and checked large amounts of medical billing data to ensure all records were accurate and complete.</li>
+        <li>Mapped out clear, step-by-step instructions for internal software workflows to make processing faster for the team.</li>
+        <li>Found layout issues and slow points in our internal tools and shared feedback to improve the system's usability.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">UBISOFT INDIA | Junior Game Tester (QA)</span>
+        <span class="exp-date">Nov 2020 – Nov 2021</span>
+      </div>
+      <ul class="bullet-list">
+        <li>Tested menus, screens, and settings to find layout mistakes, broken buttons, and confusing navigation loops.</li>
+        <li>Wrote detailed bug reports in JIRA to show developers exactly where the interface was breaking and how to fix it.</li>
+        <li>Reviewed first-time user tutorials and onboarding screens to suggest ways to make choices clearer and faster for players.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">FUSION PRACTICES | Software Development Trainee</span>
+        <span class="exp-date">Sep 2018 – Apr 2019</span>
+      </div>
+      <ul class="bullet-list">
+        <li>Designed wireframes and interactive mockups for internal employee dashboards to simplify company workflows.</li>
+        <li>Created clean user interface layouts, icons, and visual branding assets for a variety of corporate client projects.</li>
+        <li>Built responsive web layouts focusing on simple navigation and highly intuitive user experiences.</li>
+      </ul>
+    </div>
+
+    <!-- Projects -->
+    <div class="sec-banner">Projects (Google UX Specialization Course Case Studies)</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">"Suzoki" — Food Customization App</span>
+        <span class="exp-date">2-Week Design Exercise</span>
+      </div>
+      <ul class="bullet-list">
+        <li><strong>The Problem:</strong> Users felt overwhelmed by long food delivery menus and got frustrated by hidden ingredient costs at checkout.</li>
+        <li><strong>The Fix:</strong> Built a clean top navigation bar to switch categories instantly and added clear pricing (+¥100) next to every single ingredient button.</li>
+        <li><strong>What I Made:</strong> Created paper sketches, digital layouts, and a clickable interactive prototype in Figma.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">Teenager E-Learning Platform</span>
+        <span class="exp-date">3-Week Design Exercise</span>
+      </div>
+      <ul class="bullet-list">
+        <li><strong>The Problem:</strong> Students learning to code online got bored quickly and quit the platform when studying completely by themselves.</li>
+        <li><strong>The Fix:</strong> Redesigned the screen to show the video lesson on one side and a live chat window with classmates on the other side.</li>
+        <li><strong>What I Learned:</strong> Kept the project simple by focus-building the main video player first before trying to add too many extra social features.</li>
+      </ul>
+    </div>
+
+    <!-- Education & Credentials -->
+    <div class="sec-banner">Education & Credentials</div>
+
+    <div class="exp-item" style="margin-bottom: 6px;">
+      <div class="exp-header">
+        <span class="exp-title">Google UX Design Professional Certificate | Coursera</span>
+        <span class="exp-date">Sep 2023</span>
+      </div>
+    </div>
+
+    <div class="exp-item" style="margin-bottom: 0;">
+      <div class="exp-header">
+        <span class="exp-title">B.Tech in Information Technology | SASTRA Deemed University, Thanjavur</span>
+        <span class="exp-date">2014 – 2018</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

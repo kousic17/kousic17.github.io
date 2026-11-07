@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suzoki — Food Customization App (Presentation Deck)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a0a0c;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 16px 20px 40px;
+    }
+    .deck-top-bar {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .top-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .deck-top-bar a {
+      color: #e65c00;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+      font-size: 15px;
+    }
+    .deck-top-bar a:hover { text-decoration: underline; }
+    .deck-title {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1.2px;
+      font-size: 16px;
+      color: #fff;
+    }
+    .view-switcher {
+      display: inline-flex;
+      background: rgba(255,255,255,0.08);
+      padding: 3px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .view-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .view-btn.active {
+      background: #e65c00;
+      color: #fff;
+    }
+    .slide-counter {
+      font-family: 'Martel Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 600;
+    }
+
+    /* Stage */
+    .slide-stage {
+      width: 100%;
+      max-width: 1100px;
+      aspect-ratio: 16 / 9;
+      background: #fff;
+      color: #202124;
+      border-radius: 8px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.85);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 44px 52px;
+      flex-direction: column;
+      position: relative;
+      background: #fff;
+      color: #202124;
+      overflow: hidden;
+    }
+    .slide.active {
+      display: flex;
+    }
+    .slide-header-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: #202124;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .slide-footer-logo {
+      position: absolute;
+      bottom: 20px;
+      right: 28px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #70757a;
+    }
+
+    /* Color dividers */
+    .slide.bg-blue { background: #4285f4; color: #fff; justify-content: center; }
+    .slide.bg-red { background: #ea4335; color: #fff; justify-content: center; }
+    .slide.bg-yellow { background: #fbbc04; color: #202124; justify-content: center; }
+    .slide.bg-green { background: #34a853; color: #fff; justify-content: center; }
+    .slide.bg-dark { background: #5f6368; color: #fff; justify-content: center; }
+    .divider-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .divider-title {
+      font-size: 46px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .divider-list {
+      list-style: none;
+      font-size: 18px;
+      line-height: 2;
+    }
+    .divider-list li::before {
+      content: '• ';
+      margin-right: 8px;
+    }
+
+    /* Original PDF view */
+    .slide-original-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+      display: none;
+    }
+    .slide-original-img.active {
+      display: block;
+    }
+
+    /* Layout utilities inside slides */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      height: calc(100% - 50px);
+      align-items: center;
+    }
+    .lead-p {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #3c4043;
+      margin-bottom: 12px;
+    }
+    .lead-p strong {
+      color: #202124;
+    }
+    .card-finding {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      border: 1px solid #e8eaed;
+    }
+    .badge-chip {
+      display: inline-block;
+      background: #e65c00;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Image frames */
+    .img-showcase {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      max-height: 380px;
+    }
+    .img-showcase img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      border: 1px solid #e0e0e0;
+      background: #fff;
+    }
+    .wireframe-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      height: 100%;
+      align-items: center;
+    }
+    .wireframe-gallery img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      border: 1px solid #e0e0e0;
+      background: #fff;
+    }
+    .mockup-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      height: 100%;
+      align-items: center;
+    }
+    .mockup-grid-4 img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 1px solid #e0e0e0;
+      background: #fff;
+    }
+
+    /* Progress bar */
+    .progress-bar-track {
+      width: 100%;
+      max-width: 1100px;
+      height: 4px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 2px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: #e65c00;
+      border-radius: 2px;
+      transition: width 0.25s ease;
+    }
+
+    /* Controls */
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .btn-ctrl {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 9px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Martel Sans', sans-serif;
+      transition: all 0.2s;
+    }
+    .btn-ctrl:hover {
+      background: #e65c00;
+      border-color: #e65c00;
+    }
+    .btn-ctrl:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    .btn-fullscreen {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+    .btn-fullscreen:hover {
+      background: #e65c00;
+      border-color: #e65c00;
+    }
+
+    /* Thumbnails */
+    .thumb-strip {
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 14px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+      scrollbar-color: #e65c00 #111;
+    }
+    .thumb-strip::-webkit-scrollbar { height: 4px; }
+    .thumb-strip::-webkit-scrollbar-track { background: #111; }
+    .thumb-strip::-webkit-scrollbar-thumb { background: #e65c00; border-radius: 2px; }
+    .thumb {
+      flex-shrink: 0;
+      width: 88px;
+      height: 50px;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.45;
+      transition: all 0.2s;
+      background: #222;
+    }
+    .thumb.active {
+      border-color: #e65c00;
+      opacity: 1;
+    }
+    .thumb:hover { opacity: 0.85; }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .kbd-hint {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 10px;
+    }
+    .kbd-hint kbd {
+      background: rgba(255,255,255,0.12);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="deck-top-bar">
+    <div class="top-left">
+      <a href="index.html">← BACK TO PORTFOLIO</a>
+      <div class="deck-title">"SUZOKI" — FOOD CUSTOMIZATION APP</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div class="view-switcher">
+        <button class="view-btn active" id="btn-revamped">✨ Revamped (Filled + Designs)</button>
+        <button class="view-btn" id="btn-original">📄 Original Google Slides</button>
+      </div>
+      <div class="slide-counter" id="slide-num">1 / 25</div>
+    </div>
+  </div>
+
+  <div class="slide-stage" id="stage">
+
+    <!-- ========== MODE 1: REVAMPED HTML SLIDES (FILLED TEXT + REAL WIREFRAMES) ========== -->
+    <div id="deck-revamped" style="width:100%; height:100%;">
+
+      <!-- Slide 1: Cover -->
+      <div class="slide bg-blue active">
+        <h1 style="font-size: 52px; font-weight: 700; margin-bottom: 12px; line-height: 1.1;">"Suzoki" — Food Customization App</h1>
+        <p style="font-size: 22px; opacity: 0.95; margin-bottom: 36px;">UX/UI Design Case Study</p>
+        <div style="font-size: 18px; font-weight: 600; border-top: 2px solid rgba(255,255,255,0.4); padding-top: 16px; max-width: 440px;">Kousic Srinivasan</div>
+        <div class="slide-footer-logo" style="color: #fff;">Google UX Design Certificate</div>
+      </div>
+
+      <!-- Slide 2: Project Overview -->
+      <div class="slide">
+        <h2 class="slide-header-title">Project overview</h2>
+        <div class="grid-2">
+          <div>
+            <p class="lead-p"><strong>The product:</strong><br>Food customization app called "Suzoki" for a Japanese restaurant. Solves common ordering friction by allowing users to easily customize food orders based on personal ingredients, allergies, and dietary needs.</p>
+            <p class="lead-p"><strong>Project duration:</strong><br>2-week design exercise to build a unique, trendy, and user-friendly mobile experience.</p>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/suzoki-slides/img-008.png" alt="Suzoki Mobile Screen">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 3: Problem & Goal -->
+      <div class="slide">
+        <h2 class="slide-header-title">Project overview</h2>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding" style="border-left: 4px solid #ea4335;">
+            <h3 style="font-size: 17px; color: #ea4335; margin-bottom: 8px;">The problem:</h3>
+            <p class="lead-p" style="font-size: 14px;">My ideal customer is a man named Kodama (mid-20s, lives with friends in Japan). He wants to eat food of his own choice on a modest budget, but gets frustrated by long menus and hidden costs.<br><br><strong>Needs:</strong> Quick customization, budget transparency, and minimal time spent ordering.</p>
+          </div>
+          <div class="card-finding" style="border-left: 4px solid #4285f4;">
+            <h3 style="font-size: 17px; color: #4285f4; margin-bottom: 8px;">The goal:</h3>
+            <p class="lead-p" style="font-size: 14px;">Our food customization app lets users customize meal ingredients with upfront pricing. Measured by tracking user engagement and repeat orders placed within a week.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 4: Role & Responsibilities -->
+      <div class="slide">
+        <h2 class="slide-header-title">Project overview</h2>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding">
+            <h3 style="font-size: 17px; margin-bottom: 8px; color:#202124;">My role:</h3>
+            <p class="lead-p">Lead UX Designer responsible for the app's end-to-end design from concept to high-fidelity prototype.</p>
+          </div>
+          <div class="card-finding">
+            <h3 style="font-size: 17px; margin-bottom: 8px; color:#202124;">Responsibilities:</h3>
+            <p class="lead-p">User research, empathy mapping, personas, wireframing, high-fidelity mockups, information architecture, and interactive prototyping.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 5: Section 1 -->
+      <div class="slide bg-red">
+        <div class="divider-content">
+          <h2 class="divider-title">Understanding<br>the user</h2>
+          <ul class="divider-list">
+            <li>User research</li>
+            <li>Personas</li>
+            <li>Problem statements</li>
+            <li>User journey maps</li>
+          </ul>
+        </div>
+        <div class="slide-footer-logo" style="color: #fff;">Google</div>
+      </div>
+
+      <!-- Slide 6: Research Summary -->
+      <div class="slide">
+        <h2 class="slide-header-title">User research: summary</h2>
+        <div style="max-width: 780px; margin: 30px auto; text-align: center;">
+          <p class="lead-p" style="font-size: 16.5px; line-height: 1.8;">
+            I conducted interviews with prospective users of food delivery apps and created empathy maps to understand user habits, pain points, and ordering preferences.
+          </p>
+          <p class="lead-p" style="font-size: 16.5px; line-height: 1.8; color: #5f6368; margin-top: 14px;">
+            Going into research, I assumed users needing the app were primarily young working adults. However, research revealed that students and budget-conscious individuals felt an even greater need for quick, affordable meal customization.
+          </p>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 7: Pain Points -->
+      <div class="slide">
+        <h2 class="slide-header-title">User research: pain points</h2>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px;">
+          <div class="card-finding" style="text-align: center;">
+            <div style="width: 30px; height: 30px; background: #ea4335; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: 700;">1</div>
+            <h4 style="margin-bottom: 6px; font-size:14px;">Lack of Customization</h4>
+            <p style="font-size: 12.5px; color: #5f6368; line-height: 1.45;">Inability to adjust ingredients to personal tastes or dietary preferences.</p>
+          </div>
+          <div class="card-finding" style="text-align: center;">
+            <div style="width: 30px; height: 30px; background: #ea4335; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: 700;">2</div>
+            <h4 style="margin-bottom: 6px; font-size:14px;">Freshness Uncertainty</h4>
+            <p style="font-size: 12.5px; color: #5f6368; line-height: 1.45;">Foods arriving soggy or cold with unclear ingredient sourcing.</p>
+          </div>
+          <div class="card-finding" style="text-align: center;">
+            <div style="width: 30px; height: 30px; background: #ea4335; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: 700;">3</div>
+            <h4 style="margin-bottom: 6px; font-size:14px;">Photo Mismatches</h4>
+            <p style="font-size: 12.5px; color: #5f6368; line-height: 1.45;">Delivered meals failing to match misleading marketing photographs.</p>
+          </div>
+          <div class="card-finding" style="text-align: center;">
+            <div style="width: 30px; height: 30px; background: #ea4335; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-weight: 700;">4</div>
+            <h4 style="margin-bottom: 6px; font-size:14px;">Menu Fatigue</h4>
+            <p style="font-size: 12.5px; color: #5f6368; line-height: 1.45;">Scrolling through endlessly long lists causing decision fatigue.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 8: Persona -->
+      <div class="slide">
+        <h2 class="slide-header-title">Persona: Kodama</h2>
+        <div class="grid-2">
+          <div>
+            <div style="display:flex; align-items:center; gap: 14px; margin-bottom: 14px;">
+              <img src="assets/suzoki-slides/img-021.png" alt="Kodama Avatar" style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid #ea4335;">
+              <div>
+                <strong style="font-size:17px; color:#202124;">Kodama</strong>
+                <p style="font-size:12.5px; color:#5f6368;">Age: Mid 20s · Hiroshima, Japan · Marketing Agent</p>
+              </div>
+            </div>
+            <p class="lead-p"><strong>Problem statement:</strong><br>Kodama is in his mid-20s living in Hiroshima with friends. He needs a quick, healthy Japanese meal customization flow on a modest budget without hidden charges.</p>
+            <div class="card-finding" style="font-style: italic; font-size: 13px; color:#5f6368;">
+              “No distance of place or lapse of time can lessen the friendship of those who are thoroughly persuaded of each other's worth.”
+            </div>
+          </div>
+          <div>
+            <div class="card-finding">
+              <strong style="color:#202124;">Goals:</strong>
+              <p style="font-size:13px; color:#5f6368; margin-top:4px;">• Variety of healthy Japanese menu items<br>• Fast delivery in meal sharing quantities<br>• Save time while ordering daily lunches</p>
+              <br>
+              <strong style="color:#202124;">Frustrations:</strong>
+              <p style="font-size:13px; color:#5f6368; margin-top:4px;">• Lack of time searching for specific cuisine<br>• Having to check multiple sources to customize dishes</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 9: User Journey Map -->
+      <div class="slide">
+        <h2 class="slide-header-title">User journey map</h2>
+        <p class="lead-p" style="font-size: 13.5px; margin-bottom: 14px;">Goal: Enable Kodama to select, customize, and order his favorite Japanese dishes under 60 seconds.</p>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; font-size: 11px;">
+          <div class="card-finding"><strong>1. App Install</strong><br><br>Fast onboarding via Google account or mobile number.</div>
+          <div class="card-finding"><strong>2. Search Menu</strong><br><br>Top category navigation for Sushi, Udon, Tofu, Ramen.</div>
+          <div class="card-finding"><strong>3. Customization</strong><br><br>Real-time price breakdown (+¥100) per ingredient.</div>
+          <div class="card-finding"><strong>4. Payment</strong><br><br>UPI, Cash on delivery, Amazon Pay options.</div>
+          <div class="card-finding"><strong>5. Order Delivery</strong><br><br>Real-time order tracker and instant customer support.</div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 10: Section 2 -->
+      <div class="slide bg-yellow">
+        <div class="divider-content">
+          <h2 class="divider-title" style="color: #202124;">Starting<br>the design</h2>
+          <ul class="divider-list" style="color: #202124;">
+            <li>Paper wireframes</li>
+            <li>Digital wireframes</li>
+            <li>Low-fidelity prototype</li>
+            <li>Usability studies</li>
+          </ul>
+        </div>
+        <div class="slide-footer-logo" style="color: #202124;">Google</div>
+      </div>
+
+      <!-- Slide 11: Paper wireframes (WITH REAL SKETCH IMAGES) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Paper wireframes</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Design Ideation</span>
+            <h4 style="font-size: 16px; margin-bottom: 8px; color:#202124;">Goals & Thought Process:</h4>
+            <p class="lead-p" style="font-size: 13.5px;">I sketched multiple iterations of paper wireframes for the home and menu screens to explore quick ways for users to filter dishes. My primary focus was placing category pills (Sushi, Udon, Tofu, Tempura, Ramen) prominently at the top so Kodama could reach his preferred cuisine with a single tap, alongside a direct add-to-cart button on each food card to minimize navigation friction.</p>
+          </div>
+          <div class="wireframe-gallery">
+            <img src="assets/suzoki-slides/img-028.png" alt="Paper Wireframe 1">
+            <img src="assets/suzoki-slides/img-029.png" alt="Paper Wireframe 2">
+            <img src="assets/suzoki-slides/img-030.png" alt="Paper Wireframe 3">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 12: Digital wireframes 1 (WITH REAL WIREFRAME IMAGE) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Digital wireframes</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Screen 1</span>
+            <h4 style="font-size: 16px; margin-bottom: 8px; color:#202124;">Dish Customization Layout:</h4>
+            <p class="lead-p" style="font-size: 13.5px;">Moving from paper to digital wireframes, I structured the ingredient selection screen to directly solve the pain point of hidden costs. The layout introduces clear price increments next to each item and groups required bases separately from optional toppings, providing a predictable ordering flow.</p>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/suzoki-slides/img-033.png" alt="Digital Wireframe 1 — Customization Screen">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 13: Digital wireframes 2 (WITH REAL WIREFRAME IMAGE) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Digital wireframes</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Screen 2</span>
+            <h4 style="font-size: 16px; margin-bottom: 8px; color:#202124;">Category Browse Experience:</h4>
+            <p class="lead-p" style="font-size: 13.5px;">For the main browsing screen, I established a clean visual hierarchy featuring prominent top category filters, star ratings, and clear thumbnail placeholders. This layout ensures users can scan menu options quickly without feeling overwhelmed by long unstructured lists.</p>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/suzoki-slides/img-036.png" alt="Digital Wireframe 2 — Menu Browse Screen">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 14: Low-fi Prototype (WITH REAL PROTOTYPE SCREEN) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Low-fidelity prototype</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Figma Prototype</span>
+            <p class="lead-p" style="font-size: 14px;">The low-fidelity prototype connected the user flow from category selection to custom ingredient assembly and checkout. User paths were mapped to evaluate step friction before introducing visual polish.</p>
+            <div style="margin-top: 18px;">
+              <a href="https://www.figma.com/proto/eXS2PGRh8YV0npNgeKcw3e/Figma-designs?page-id=223%3A184&type=design&node-id=1066-623&viewport=351%2C266%2C0.13&t=MdRhasnNcMKTOar0-1&scaling=scale-down&starting-point-node-id=1066%3A623&show-proto-sidebar=1&mode=design" target="_blank" style="display:inline-block; background:#1a73e8; color:#fff; text-decoration:none; padding:10px 18px; border-radius:6px; font-weight:600; font-size:13px;">Open Figma Low-Fi Prototype ↗</a>
+            </div>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/suzoki-slides/img-039.png" alt="Low-Fi Prototype Screen">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 15: Usability Findings -->
+      <div class="slide">
+        <h2 class="slide-header-title">Usability study: findings</h2>
+        <p class="lead-p" style="font-size: 14px; margin-bottom: 16px;">I conducted two rounds of usability testing with 5 participants to evaluate customization speed and pricing clarity.</p>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding" style="border-left: 4px solid #ea4335;">
+            <h4 style="color:#ea4335; margin-bottom: 8px; font-size:15px;">Round 1 Findings:</h4>
+            <ul style="font-size: 13px; line-height: 1.6; padding-left: 16px; color:#3c4043;">
+              <li>Tested low-fidelity prototype with 2 initial participants to uncover structural blockers.</li>
+              <li>Identified navigation bottlenecks using an affinity map.</li>
+              <li><strong>Price Ambiguity:</strong> Users hesitated at checkout because topping prices were not explicitly visible per item.</li>
+            </ul>
+          </div>
+          <div class="card-finding" style="border-left: 4px solid #34a853;">
+            <h4 style="color:#34a853; margin-bottom: 8px; font-size:15px;">Round 2 Findings:</h4>
+            <ul style="font-size: 13px; line-height: 1.6; padding-left: 16px; color:#3c4043;">
+              <li><strong>Fast Category Switching:</strong> Top navigation tabs reduced browsing time by 30%.</li>
+              <li><strong>Cost Transparency:</strong> Adding (+¥100) tags next to each topping eliminated checkout surprise.</li>
+              <li><strong>Sub-60s Ordering:</strong> Simplified steps allowed users to complete custom orders in under 60 seconds.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 16: Section 3 -->
+      <div class="slide bg-green">
+        <div class="divider-content">
+          <h2 class="divider-title">Refining<br>the design</h2>
+          <ul class="divider-list">
+            <li>Mockups</li>
+            <li>High-fidelity prototype</li>
+            <li>Accessibility</li>
+          </ul>
+        </div>
+        <div class="slide-footer-logo" style="color: #fff;">Google</div>
+      </div>
+
+      <!-- Slide 17: Mockup 1 (WITH REAL BEFORE & AFTER IMAGES) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Mockups: Before & After Usability Study</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Iterative Refinement</span>
+            <p class="lead-p"><strong>User-First Refinements:</strong><br>My goal was to provide the best possible way to give users a useful, enjoyable, and usable product that puts the user-first approach at the center.</p>
+            <p style="font-size:13px; color:#5f6368; line-height:1.5;">The refined screen introduces a prominent quantity counter, clear Japanese description, and a single high-contrast 'Add to list' button.</p>
+          </div>
+          <div class="img-showcase">
+            <div style="text-align:center;">
+              <img src="assets/suzoki-slides/img-046.png" alt="Before" style="max-height:330px;">
+              <div style="font-size:11px; color:#70757a; margin-top:4px; font-weight:600;">Before Study</div>
+            </div>
+            <div style="text-align:center;">
+              <img src="assets/suzoki-slides/img-047.png" alt="After" style="max-height:330px;">
+              <div style="font-size:11px; color:#34a853; margin-top:4px; font-weight:600;">After Refinement</div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 18: Mockup 2 (WITH REAL CUSTOMIZATION IMAGES) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Mockups: Customization Filters</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Visual Hierarchy</span>
+            <p class="lead-p"><strong>Ingredient Filtering:</strong><br>Users found customization options much more useful when ingredients were categorized cleanly with visually pleasing presentation and transparent prices (+¥100).</p>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/suzoki-slides/img-050.png" alt="Ingredient Screen 1" style="max-height:350px;">
+            <img src="assets/suzoki-slides/img-051.png" alt="Ingredient Screen 2" style="max-height:350px;">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 19: Mockup 3 (WITH ALL 4 REAL SCREEN MOCKUPS) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Mockups: Comprehensive Dish Options</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Complete Ecosystem</span>
+            <p class="lead-p"><strong>Menu Ecosystem:</strong><br>Expanded dish options across Kitsune Udon, Tempura Udon, and custom broth bases with instant topping checkboxes (Deep fried tofu, Soy sauce, Shichimi togarashi).</p>
+          </div>
+          <div class="mockup-grid-4">
+            <img src="assets/suzoki-slides/img-054.png" alt="Menu 1">
+            <img src="assets/suzoki-slides/img-055.png" alt="Menu 2">
+            <img src="assets/suzoki-slides/img-056.png" alt="Menu 3">
+            <img src="assets/suzoki-slides/img-057.png" alt="Menu 4">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 20: Hi-Fi Prototype (WITH REAL FIGMA PROTOTYPE HERO) -->
+      <div class="slide">
+        <h2 class="slide-header-title">High-fidelity prototype</h2>
+        <div class="grid-2">
+          <div>
+            <span class="badge-chip">Interactive Flow</span>
+            <p class="lead-p">The high-fidelity interactive prototype features complete component states, haptic touch simulation, and realistic checkout transitions in Figma.</p>
+            <div style="margin-top: 16px;">
+              <a href="https://www.figma.com/proto/eXS2PGRh8YV0npNgeKcw3e/Figma-designs?embed_host=share&kind=&node-id=232-195&page-id=223%3A184&scaling=scale-down&starting-point-node-id=232%3A195&t=ma0XHmAlpeKYIJDC-1&type=design&viewport=297%2C132%2C0.13" target="_blank" style="display:inline-block; background:#1a73e8; color:#fff; text-decoration:none; padding:10px 18px; border-radius:6px; font-weight:600; font-size:13px;">Launch Clickable Figma Prototype ↗</a>
+            </div>
+          </div>
+          <div class="img-showcase">
+            <img src="assets/suzoki-slides/img-060.png" alt="High-Fidelity Prototype Mockup" style="max-height:330px;">
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 21: Accessibility -->
+      <div class="slide">
+        <h2 class="slide-header-title">Accessibility considerations</h2>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding" style="border-left: 4px solid #34a853;">
+            <h4 style="margin-bottom:8px; color:#202124;">1. Screen Reader Compatibility</h4>
+            <p style="font-size: 13.5px; color: #5f6368; line-height: 1.5;">Included descriptive alt-text for all food photos and maintained clear semantic heading hierarchy throughout.</p>
+          </div>
+          <div class="card-finding" style="border-left: 4px solid #34a853;">
+            <h4 style="margin-bottom:8px; color:#202124;">2. High Color Contrast</h4>
+            <p style="font-size: 13.5px; color: #5f6368; line-height: 1.5;">Used WCAG AA compliant contrast ratios between text and buttons to ensure effortless legibility in bright sunlight.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 22: Section 4 -->
+      <div class="slide bg-dark">
+        <div class="divider-content">
+          <h2 class="divider-title">Going<br>forward</h2>
+          <ul class="divider-list">
+            <li>Takeaways</li>
+            <li>Next steps</li>
+          </ul>
+        </div>
+        <div class="slide-footer-logo" style="color: #fff;">Google</div>
+      </div>
+
+      <!-- Slide 23: Takeaways -->
+      <div class="slide">
+        <h2 class="slide-header-title">Takeaways</h2>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding">
+            <h4 style="margin-bottom:8px; color:#202124;">Impact:</h4>
+            <p class="lead-p" style="font-size: 13.5px;">Testing a product with real users gives invaluable perspective. Usability studies proved that transparent pricing directly influences user conversion and reduces ordering anxiety.</p>
+          </div>
+          <div class="card-finding">
+            <h4 style="margin-bottom:8px; color:#202124;">What I learned:</h4>
+            <p class="lead-p" style="font-size: 13.5px;">The best way to validate usability is by testing early with diverse participants rather than relying on design assumptions.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 24: Next steps (FILLED IN) -->
+      <div class="slide">
+        <h2 class="slide-header-title">Next steps</h2>
+        <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
+          <div class="card-finding">
+            <h4 style="margin-bottom:8px; color:#202124;">1. Wider Usability Studies</h4>
+            <p style="font-size: 13.5px; color: #5f6368; line-height: 1.5;">Conduct another round of usability studies with a broader demographic to evaluate edge cases in delivery scheduling.</p>
+          </div>
+          <div class="card-finding">
+            <h4 style="margin-bottom:8px; color:#202124;">2. One-Tap Reordering</h4>
+            <p style="font-size: 13.5px; color: #5f6368; line-height: 1.5;">Introduce saved custom recipe presets so repeat diners like Kodama can reorder favorite bowls in a single tap.</p>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+      <!-- Slide 25: Closing Slide -->
+      <div class="slide">
+        <h2 class="slide-header-title">Let’s connect!</h2>
+        <div style="max-width: 760px; margin: 10px auto; text-align: center;">
+          <p class="lead-p" style="font-size: 15px; line-height: 1.7;">
+            I'm Kousic Srinivasan — UI/UX Designer, QA Alum, and Front-End Developer. I believe good design must be useful, enjoyable, and accessible to every user regardless of ability, background, or device.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 20px; margin-top: 24px; font-size: 13.5px; font-weight: 600; flex-wrap: wrap;">
+            <span>Mail: <a href="mailto:kousic.it@gmail.com" style="color:#1a73e8; text-decoration:none;">kousic.it@gmail.com</a></span>
+            <span>Mobile: +91-7540054426</span>
+            <a href="https://in.linkedin.com/in/kousic-srinivas-b6876477" target="_blank" style="color:#1a73e8; text-decoration:none;">LinkedIn ↗</a>
+            <a href="https://www.github.com/kousic17" target="_blank" style="color:#1a73e8; text-decoration:none;">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="slide-footer-logo">Google</div>
+      </div>
+
+    </div>
+
+    <!-- ========== MODE 2: ORIGINAL GOOGLE SLIDES (PDF PAGES) ========== -->
+    <div id="deck-original" style="width:100%; height:100%; display:none;">
+      <img src="assets/suzoki-pages/slide-01.png" alt="Slide 1" class="slide-original-img active">
+      <img src="assets/suzoki-pages/slide-02.png" alt="Slide 2" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-03.png" alt="Slide 3" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-04.png" alt="Slide 4" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-05.png" alt="Slide 5" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-06.png" alt="Slide 6" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-07.png" alt="Slide 7" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-08.png" alt="Slide 8" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-09.png" alt="Slide 9" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-10.png" alt="Slide 10" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-11.png" alt="Slide 11" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-12.png" alt="Slide 12" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-13.png" alt="Slide 13" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-14.png" alt="Slide 14" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-15.png" alt="Slide 15" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-16.png" alt="Slide 16" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-17.png" alt="Slide 17" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-18.png" alt="Slide 18" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-19.png" alt="Slide 19" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-20.png" alt="Slide 20" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-21.png" alt="Slide 21" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-22.png" alt="Slide 22" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-23.png" alt="Slide 23" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-24.png" alt="Slide 24" class="slide-original-img">
+      <img src="assets/suzoki-pages/slide-25.png" alt="Slide 25" class="slide-original-img">
+    </div>
+
+  </div>
+
+  <div class="progress-bar-track">
+    <div class="progress-bar-fill" id="progress" style="width: 4%"></div>
+  </div>
+
+  <div class="deck-controls">
+    <button class="btn-ctrl" id="prev-btn" disabled>← Previous</button>
+    <button class="btn-ctrl" id="next-btn">Next →</button>
+    <button class="btn-fullscreen" id="fs-btn" title="Fullscreen">⛶</button>
+  </div>
+
+  <div class="thumb-strip" id="thumbs"></div>
+
+  <div class="kbd-hint">
+    <kbd>←</kbd> <kbd>→</kbd> navigate &nbsp;·&nbsp; <kbd>Space</kbd> next &nbsp;·&nbsp; <kbd>F</kbd> fullscreen
+  </div>
+
+  <script>
+    let current = 0;
+    const total = 25;
+    let mode = 'revamped'; // 'revamped' or 'original'
+
+    const revampedSlides = document.querySelectorAll('#deck-revamped .slide');
+    const originalSlides = document.querySelectorAll('#deck-original .slide-original-img');
+    const counter = document.getElementById('slide-num');
+    const progress = document.getElementById('progress');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const thumbsEl = document.getElementById('thumbs');
+    const stage = document.getElementById('stage');
+
+    const btnRevamped = document.getElementById('btn-revamped');
+    const btnOriginal = document.getElementById('btn-original');
+    const deckRevamped = document.getElementById('deck-revamped');
+    const deckOriginal = document.getElementById('deck-original');
+
+    // Build thumbnail strip using original page images
+    for (let i = 0; i < total; i++) {
+      const pad = String(i + 1).padStart(2, '0');
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb' + (i === 0 ? ' active' : '');
+      thumb.innerHTML = `<img src="assets/suzoki-pages/slide-${pad}.png" alt="Slide ${i+1}">`;
+      thumb.addEventListener('click', () => goTo(i));
+      thumbsEl.appendChild(thumb);
+    }
+
+    function goTo(idx) {
+      if (mode === 'revamped') {
+        revampedSlides[current].classList.remove('active');
+        current = idx;
+        revampedSlides[current].classList.add('active');
+      } else {
+        originalSlides[current].classList.remove('active');
+        current = idx;
+        originalSlides[current].classList.add('active');
+      }
+
+      document.querySelectorAll('.thumb').forEach((t, i) => {
+        t.classList.toggle('active', i === current);
+      });
+
+      counter.textContent = `${current + 1} / ${total}`;
+      progress.style.width = `${((current + 1) / total) * 100}%`;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === total - 1;
+
+      const activeThumb = document.querySelectorAll('.thumb')[current];
+      if (activeThumb) {
+        activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+
+    prevBtn.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
+    nextBtn.addEventListener('click', () => { if (current < total - 1) goTo(current + 1); });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        if (current < total - 1) goTo(current + 1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (current > 0) goTo(current - 1);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      }
+    });
+
+    // View switchers
+    btnRevamped.addEventListener('click', () => {
+      if (mode === 'revamped') return;
+      mode = 'revamped';
+      btnRevamped.classList.add('active');
+      btnOriginal.classList.remove('active');
+      deckRevamped.style.display = 'block';
+      deckOriginal.style.display = 'none';
+      revampedSlides.forEach((s, i) => s.classList.toggle('active', i === current));
+    });
+
+    btnOriginal.addEventListener('click', () => {
+      if (mode === 'original') return;
+      mode = 'original';
+      btnOriginal.classList.add('active');
+      btnRevamped.classList.remove('active');
+      deckOriginal.style.display = 'block';
+      deckRevamped.style.display = 'none';
+      originalSlides.forEach((s, i) => s.classList.toggle('active', i === current));
+    });
+
+    // Fullscreen
+    document.getElementById('fs-btn').addEventListener('click', toggleFullscreen);
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        stage.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>

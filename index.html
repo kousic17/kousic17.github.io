@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kousic Srinivasan — UI/UX Designer & Design Technologist</title>
+  <meta name="description" content="Portfolio of Kousic Srinivasan — UI/UX Designer with a background in Software QA at Ubisoft and Operations at Hamly. Designing intuitive digital products backed by research and code.">
+  <meta name="author" content="Kousic Srinivasan">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kousic Srinivasan — UI/UX Designer Portfolio">
+  <meta property="og:description" content="Solving complex user problems. Shaping high-impact product interfaces.">
+  <meta property="og:image" content="assets/suzoki.png">
+
+  <!-- Kousic's Signature Fonts: Bebas Neue, Martel Sans, Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans:wght@300;400;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="body">
+
+  <!-- Scroll Progress Bar in Signature Electric Orange -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <div class="dot pulse"></div>
+    <span class="toast-message">Email copied to clipboard</span>
+  </div>
+
+  <!-- Kousic's Signature Header Navigation -->
+  <header class="navigation">
+    <div class="nav-container">
+      <div class="navigation-wrapper">
+        <a href="#hero" class="brand-block" aria-label="Kousic Srinivasan Home">
+          <div class="logo-type">KOUSIC SRINIVASAN</div>
+          <div class="ux-ui-designer">UX/UI DESIGNER</div>
+        </a>
+
+        <div class="navigation-link-wrapper">
+          <a href="#work" class="navilink">Work</a>
+          <div class="line"></div>
+          <a href="#experience" class="navilink">Experience</a>
+          <div class="line"></div>
+          <a href="#skills" class="navilink">Skills</a>
+          <div class="line"></div>
+          <a href="#about" class="navilink">About</a>
+          <div class="line"></div>
+          <a href="#contact" class="record navilink">
+            <div class="dot"></div>
+            <span>Contact</span>
+          </a>
+          <div class="line"></div>
+          <button class="record navilink resume-trigger-btn" title="View interactive resume">
+            <div class="dot"></div>
+            <span>Resume</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section (Revamped Antigravity Headline & Impact-Driven Layout) -->
+    <section class="section hero" id="hero">
+      <div class="container">
+        <div class="hero-text-wrap">
+          <!-- Live Status Bar -->
+          <div class="hero-status-bar">
+            <div class="record">
+              <div class="dot pulse"></div>
+              <span class="status-badge-text">OPEN FOR UI/UX DESIGN ROLES</span>
+            </div>
+            <span class="hero-location-text">Thanjavur, Tamil Nadu • Remote / Relocation</span>
+          </div>
+
+          <!-- Bold, Senior, Product-First Headline (Replacing textbook slogan) -->
+          <h1 class="big-text">
+            SOLVING USER FRICTION.<br>
+            SHAPING HIGH-IMPACT<br>
+            <span class="orange-highlight">PRODUCT INTERFACES.</span>
+          </h1>
+
+          <div class="hero-summary-box">
+            <p class="paragraph hero-bio">
+              I am a <strong>UI/UX Designer & Design Technologist</strong> with an IT engineering degree (<strong>B.Tech IT</strong>), certified by Google, and battle-tested in <strong>Software QA at Ubisoft</strong>. I eliminate user drop-off and interface friction by translating complex business logic into clean, component-driven design systems, validated through usability studies and prototyped directly in code (React, HTML/CSS, JS).
+            </p>
+
+            <!-- Recruiter Fast-Check Bar -->
+            <div class="recruiter-bar">
+              <div class="recruiter-col">
+                <span class="col-title">Primary Focus</span>
+                <span class="col-val">Product Design, User Flow Mapping, Mobile & Web UX</span>
+              </div>
+              <div class="recruiter-col">
+                <span class="col-title">Tooling & Code</span>
+                <span class="col-val">Figma Design Systems, JIRA, HTML5, CSS3, JavaScript</span>
+              </div>
+              <div class="recruiter-col">
+                <span class="col-title">Differentiator</span>
+                <span class="col-val">Ubisoft QA Rigor + Front-End Engineering Fluency</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="hero-actions">
+              <a href="#work" class="btn-orange">
+                <span>Explore Featured Work</span>
+                <span class="btn-arrow">↓</span>
+              </a>
+
+              <button class="btn-outline-white resume-trigger-btn">
+                <span>View Resume</span>
+                <span class="btn-arrow">↗</span>
+              </button>
+
+              <button class="btn-text-copy copy-email-btn" data-email="kousic.it@gmail.com" title="Click to copy email">
+                <div class="dot"></div>
+                <span>kousic.it@gmail.com</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section (Directly Accessible from Hero) -->
+    <section id="work" class="section-work">
+      <div class="container">
+        <div class="section-header-split">
+          <div>
+            <div class="caption">Selected Portfolio</div>
+            <h2 class="section-heading">Featured Projects</h2>
+          </div>
+
+          <!-- Project Filter Pills (Latest Portfolio Standard) -->
+          <div class="filter-strip" role="tablist" aria-label="Filter project categories">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
+            <button class="filter-tab" data-filter="ux-case-studies" role="tab" aria-selected="false">UX Case Studies</button>
+            <button class="filter-tab" data-filter="engineering" role="tab" aria-selected="false">Frontend Code</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 1: Suzoki (Kousic's Signature 50/50 Layout) -->
+      <div class="container project-item" data-category="ux-case-studies">
+        <div class="_5050_layout">
+          <div class="spone visual-col">
+            <div class="project-frame">
+              <img src="assets/suzoki.png" alt="Suzoki Food Customization App Interface Mockup" class="app-size-img" loading="lazy">
+              <div class="frame-tag">Google UX Specialization • 2-Week Sprint</div>
+            </div>
+          </div>
+
+          <div class="spone info-col">
+            <div class="meta-badge-row">
+              <span class="project-tag-pill">Mobile Product Design</span>
+              <span class="metric-pill">Tested with 5 Users</span>
+            </div>
+
+            <h3 class="project-heading">"Suzoki" — Food Customization App</h3>
+
+            <div class="resume-bullet-block">
+              <div class="bullet-row">
+                <span class="bullet-label">The Problem:</span>
+                <p class="bullet-text">Users felt overwhelmed by long food delivery menus and got frustrated by hidden ingredient costs at checkout.</p>
+              </div>
+
+              <div class="bullet-row">
+                <span class="bullet-label">The Fix:</span>
+                <p class="bullet-text">Built a clean top navigation bar to switch categories instantly and added clear pricing (+¥100) next to every single ingredient button.</p>
+              </div>
+
+              <div class="bullet-row">
+                <span class="bullet-label">What I Made:</span>
+                <p class="bullet-text">Created paper sketches, digital layouts, and a clickable interactive prototype in Figma.</p>
+              </div>
+            </div>
+
+            <div class="project-cta-group">
+              <button class="btn-orange-sm open-case-study" data-project="suzoki">
+                <span>Case Study Details</span>
+              </button>
+
+              <a href="deck-suzoki.html" target="_blank" rel="noopener noreferrer" class="hi-fi-link">
+                <span>Slide Deck (Presentation)</span>
+                <span class="arrow-glyph">↗</span>
+              </a>
+
+              <a href="https://www.figma.com/proto/eXS2PGRh8YV0npNgeKcw3e/Figma-designs?page-id=223%3A184&type=design&node-id=232-195&viewport=351%2C266%2C0.13&t=QSStsCYCo4ysinTH-1&scaling=scale-down&starting-point-node-id=232%3A195&show-proto-sidebar=1&mode=design" target="_blank" rel="noopener noreferrer" class="hi-fi-link">
+                <span>Figma Prototype</span>
+                <span class="arrow-glyph">↗</span>
+              </a>
+
+              <a href="assets/casestudy1.pdf" target="_blank" rel="noopener noreferrer" class="hi-fi-link">
+                <span>PDF Deck</span>
+                <span class="arrow-glyph">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 2: Teenager E-Learning Platform -->
+      <div class="container project-item" data-category="ux-case-studies" style="margin-top: 60px;">
+        <div class="_5050_layout reverse">
+          <div class="spone visual-col">
+            <div class="project-frame">
+              <img src="assets/elearning.png" alt="Teenager E-Learning Platform UI Mockup" class="app-size-img" loading="lazy">
+              <div class="frame-tag">Google UX Specialization • 3-Week Sprint</div>
+            </div>
+          </div>
+
+          <div class="spone info-col">
+            <div class="meta-badge-row">
+              <span class="project-tag-pill">Web & Tablet Platform</span>
+              <span class="metric-pill">Split-Screen Collaboration</span>
+            </div>
+
+            <h3 class="project-heading">Teenager E-Learning Platform</h3>
+
+            <div class="resume-bullet-block">
+              <div class="bullet-row">
+                <span class="bullet-label">The Problem:</span>
+                <p class="bullet-text">Students learning to code online got bored quickly and quit the platform when studying completely by themselves.</p>
+              </div>
+
+              <div class="bullet-row">
+                <span class="bullet-label">The Fix:</span>
+                <p class="bullet-text">Redesigned the screen to show the video lesson on one side and a live chat window with classmates on the other side.</p>
+              </div>
+
+              <div class="bullet-row">
+                <span class="bullet-label">What I Learned:</span>
+                <p class="bullet-text">Kept the project simple by focus-building the main video player first before trying to add too many extra social features.</p>
+              </div>
+            </div>
+
+            <div class="project-cta-group">
+              <button class="btn-orange-sm open-case-study" data-project="elearning">
+                <span>Case Study Details</span>
+              </button>
+
+              <a href="deck-elearning.html" target="_blank" rel="noopener noreferrer" class="hi-fi-link">
+                <span>Slide Deck (Presentation)</span>
+                <span class="arrow-glyph">↗</span>
+              </a>
+
+              <a href="https://xd.adobe.com/view/36b5e057-eb1d-4808-b1ee-b4eb62d27ffa-63e6/" target="_blank" rel="noopener noreferrer" class="hi-fi-link">
+                <span>Adobe XD Prototype</span>
+                <span class="arrow-glyph">↗</span>
+              </a>
+
+              <a href="assets/casestudy2.pdf" target="_blank" rel="noopener noreferrer" class="hi-fi-link">
+                <span>PDF Deck</span>
+                <span class="arrow-glyph">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Front-End Engineering & Interactive Applications -->
+      <div class="container project-item" data-category="engineering" style="margin-top: 80px;">
+        <div class="engineering-header">
+          <div>
+            <div class="caption">Design Technologist • Code Prototyping</div>
+            <h3 class="engineering-title">Interactive Front-End Implementations</h3>
+          </div>
+          <p class="engineering-sub">
+            Testing interaction design hypotheses directly in code (React, JavaScript, CSS) ensures zero friction during developer handoff.
+          </p>
+        </div>
+
+        <div class="code-cards-grid">
+          <!-- Item 1: LinkedIn -->
+          <div class="code-card">
+            <div class="code-card-img-wrap">
+              <img src="assets/linkedin.png" alt="LinkedIn UI clone built in React" loading="lazy">
+            </div>
+            <div class="code-card-body">
+              <span class="code-tag">React.js • Web App Clone</span>
+              <h4 class="code-title">LinkedIn UI Recreation</h4>
+              <p class="code-desc">
+                Modular React clone of LinkedIn's core feed, interactive posts, navigation bar, and sidebar widgets with clean component state.
+              </p>
+              <a href="https://linkedin-recreation.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-code-link">
+                <span>Launch Live Demo</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 2: Tours -->
+          <div class="code-card">
+            <div class="code-card-img-wrap">
+              <img src="assets/tours.png" alt="Tours Interactive UI" loading="lazy">
+            </div>
+            <div class="code-card-body">
+              <span class="code-tag">REST API • Async UI States</span>
+              <h4 class="code-title">Tours Discovery App</h4>
+              <p class="code-desc">
+                Dynamic travel discovery card interface with async remote data fetching, expandable reading disclosures, and dismissals.
+              </p>
+              <a href="https://leafy-taffy-03c9f1.netlify.app" target="_blank" rel="noopener noreferrer" class="btn-code-link">
+                <span>Launch Live Demo</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 3: Restaurant -->
+          <div class="code-card">
+            <div class="code-card-img-wrap">
+              <img src="assets/restaurant.png" alt="Restaurant Menu Filter UI" loading="lazy">
+            </div>
+            <div class="code-card-body">
+              <span class="code-tag">JavaScript • Dynamic Filter</span>
+              <h4 class="code-title">Restaurant Culinary Filter</h4>
+              <p class="code-desc">
+                Instant client-side categorization engine for restaurant menu items with responsive grid reflow and accessibility.
+              </p>
+              <a href="https://curious-youtiao-a084ed.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-code-link">
+                <span>Launch Live Demo</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Item 4: SpaceNews -->
+          <div class="code-card">
+            <div class="code-card-img-wrap">
+              <img src="assets/spacenews.png" alt="Space News API Live Feed" loading="lazy">
+            </div>
+            <div class="code-card-body">
+              <span class="code-tag">API Integration • Live Stream</span>
+              <h4 class="code-title">SpaceNews Dispatcher</h4>
+              <p class="code-desc">
+                Automated aerospace news stream polling external public REST APIs and formatting live payloads into responsive cards.
+              </p>
+              <a href="https://profound-cajeta-9758f0.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-code-link">
+                <span>Launch Live Demo</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience (Exact Resume Match) -->
+    <section id="experience" class="section-experience">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="caption">Career Trajectory</div>
+          <h2 class="section-heading">Work Experience</h2>
+        </div>
+
+        <div class="timeline-wrapper">
+          <!-- Role 1: Hamly Business Solutions -->
+          <div class="timeline-card">
+            <div class="timeline-aside">
+              <span class="timeline-dates">Mar 2024 – Dec 2025</span>
+              <span class="timeline-type">Operations & Usability</span>
+            </div>
+            <div class="timeline-main">
+              <h3 class="timeline-role-title">HAMLY BUSINESS SOLUTIONS | Process Associate</h3>
+              <ul class="timeline-bullets">
+                <li>Managed and checked large amounts of medical billing data to ensure all records were accurate and complete.</li>
+                <li>Mapped out clear, step-by-step instructions for internal software workflows to make processing faster for the team.</li>
+                <li>Found layout issues and slow points in our internal tools and shared feedback to improve the system's usability.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 2: Ubisoft India -->
+          <div class="timeline-card">
+            <div class="timeline-aside">
+              <span class="timeline-dates">Nov 2020 – Nov 2021</span>
+              <span class="timeline-type">Software Testing (QA)</span>
+            </div>
+            <div class="timeline-main">
+              <h3 class="timeline-role-title">UBISOFT INDIA | Junior Game Tester (QA)</h3>
+              <ul class="timeline-bullets">
+                <li>Tested menus, screens, and settings to find layout mistakes, broken buttons, and confusing navigation loops.</li>
+                <li>Wrote detailed bug reports in JIRA to show developers exactly where the interface was breaking and how to fix it.</li>
+                <li>Reviewed first-time user tutorials and onboarding screens to suggest ways to make choices clearer and faster for players.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 3: Fusion Practices -->
+          <div class="timeline-card">
+            <div class="timeline-aside">
+              <span class="timeline-dates">Sep 2018 – Apr 2019</span>
+              <span class="timeline-type">Software Development Trainee</span>
+            </div>
+            <div class="timeline-main">
+              <h3 class="timeline-role-title">FUSION PRACTICES | Software Development Trainee</h3>
+              <ul class="timeline-bullets">
+                <li>Designed wireframes and interactive mockups for internal employee dashboards to simplify company workflows.</li>
+                <li>Created clean user interface layouts, icons, and visual branding assets for a variety of corporate client projects.</li>
+                <li>Built responsive web layouts focusing on simple navigation and highly intuitive user experiences.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Education & Credentials -->
+          <div class="timeline-card">
+            <div class="timeline-aside">
+              <span class="timeline-dates">Education</span>
+              <span class="timeline-type">Credentials</span>
+            </div>
+            <div class="timeline-main">
+              <h3 class="timeline-role-title">Google UX Design Professional Certificate | Coursera (Sep 2023)</h3>
+              <p class="education-text">
+                User research, persona creation, user journey maps, wireframing, high-fidelity Figma mockups, and usability testing.
+              </p>
+              <h3 class="timeline-role-title" style="margin-top: 16px;">B.Tech in Information Technology | SASTRA Deemed University (2014 – 2018)</h3>
+              <p class="education-text">
+                Software engineering principles, Human-Computer Interaction fundamentals, database architecture, and web systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section (Clean, Modern Bento Arsenal) -->
+    <section id="skills" class="section-skills">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="caption">Capabilities</div>
+          <h2 class="section-heading">Skills & Arsenal</h2>
+        </div>
+
+        <div class="skills-arsenal-grid">
+          <div class="arsenal-card">
+            <div class="arsenal-card-header">
+              <div class="dot"></div>
+              <h4 class="arsenal-title">UX/UI Design</h4>
+            </div>
+            <p class="arsenal-desc">User-centered design methodologies to uncover pain points and architect intuitive digital solutions.</p>
+            <div class="tag-row">
+              <span class="pill-tag">Wireframing</span>
+              <span class="pill-tag">High-Fidelity Mockups</span>
+              <span class="pill-tag">Prototyping</span>
+              <span class="pill-tag">User Flow Design</span>
+              <span class="pill-tag">Usability Testing</span>
+              <span class="pill-tag">User Research</span>
+            </div>
+          </div>
+
+          <div class="arsenal-card">
+            <div class="arsenal-card-header">
+              <div class="dot"></div>
+              <h4 class="arsenal-title">Tools & Front-End Code</h4>
+            </div>
+            <p class="arsenal-desc">Hands-on software tooling and engineering syntax to bridge the gap between design and production.</p>
+            <div class="tag-row">
+              <span class="pill-tag highlight">Figma</span>
+              <span class="pill-tag">JIRA Bug Tracking</span>
+              <span class="pill-tag">HTML5</span>
+              <span class="pill-tag">CSS3</span>
+              <span class="pill-tag">JavaScript</span>
+              <span class="pill-tag">React.js</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section (Grounded in Resume Narrative) -->
+    <section id="about" class="section-about">
+      <div class="container">
+        <div class="about-flex">
+          <div class="about-left">
+            <div class="caption">About Me</div>
+            <h2 class="about-headline">
+              Bridging Empathy, Quality Assurance, & Code.
+            </h2>
+            <p class="paragraph">
+              My transition into UX/UI design is anchored by technical curiosity and user advocacy. Having worked in software quality assurance at <strong>Ubisoft</strong>, I possess an ingrained reflex to spot interface friction, edge-case bugs, and confusing navigation loops before users encounter them.
+            </p>
+            <p class="paragraph">
+              At <strong>Hamly Business Solutions</strong>, mapping out internal software workflows showed me firsthand how thoughtful interface design directly impacts human productivity. Supported by the <strong>Google UX Certificate</strong> and my IT engineering degree, I design products that feel natural, eliminate user anxiety, and scale smoothly.
+            </p>
+          </div>
+
+          <div class="about-right">
+            <div class="philosophy-integrated-card">
+              <div class="caption" style="color: var(--orange);">Design Principle</div>
+              <blockquote class="integrated-quote">
+                “Great interface design removes friction so seamlessly that users never have to think about the interface itself.”
+              </blockquote>
+              <p class="integrated-note">
+                Consciously identifying interface friction and solving it with clarity, empathy, and technical rigor is my guiding standard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section (Kousic's Signature Mid Section) -->
+    <section id="contact" class="section-contact">
+      <div class="container">
+        <div class="mid-wrapper">
+          <div class="caption">Contact</div>
+          <h2 class="mid-title">GOT A PROJECT? LET'S CONNECT.</h2>
+          <div class="mid-sub-wrap">
+            <p class="max-460-text">
+              If you're hiring for a <strong>UI/UX Designer</strong>, <strong>Product Designer</strong>, or <strong>Design Technologist</strong> role, I am currently available for full-time opportunities.
+            </p>
+          </div>
+
+          <div class="contact-channels">
+            <a href="mailto:kousic.it@gmail.com?subject=UI/UX%20Role%20Inquiry" class="record contact-link-block">
+              <div class="dot pulse"></div>
+              <span class="contact-link-text">Mail: kousic.it@gmail.com</span>
+            </a>
+
+            <button class="record contact-link-block copy-email-btn" data-email="kousic.it@gmail.com">
+              <div class="dot"></div>
+              <span class="contact-link-text">Copy Email</span>
+            </button>
+
+            <a href="tel:+917540054426" class="record contact-link-block">
+              <div class="dot"></div>
+              <span class="contact-link-text">Phone: +91 7540054426</span>
+            </a>
+
+            <button class="record contact-link-block resume-trigger-btn">
+              <div class="dot"></div>
+              <span class="contact-link-text">View Resume</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Kousic's Signature Footer -->
+  <footer class="section-footer">
+    <div class="container">
+      <div class="footer-wrapper">
+        <div class="caption footer">
+          <strong>©</strong> COPYRIGHT. ALL RIGHTS RESERVED. DESIGN BY KOUSIC SRINIVASAN
+        </div>
+
+        <div class="div-block-socials">
+          <a href="https://linkedin.com/in/kousic-srinivas-b6876477" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+          <a href="https://github.com/kousic17" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+          <a href="assets/resume.pdf" download class="footer-link">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Case Study Reader Modal -->
+  <div id="case-study-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">✕</button>
+      <div class="modal-inner" id="modal-content">
+        <!-- Injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Resume Modal -->
+  <div id="resume-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop" id="resume-backdrop"></div>
+    <div class="modal-container resume-modal-container">
+      <button class="modal-close-btn" id="resume-close-btn" aria-label="Close resume dialog">✕</button>
+      <div class="modal-inner" style="padding: 44px;">
+        <div class="resume-sheet-header">
+          <div>
+            <div class="logo-type" style="font-size: 32px; line-height: 34px;">KOUSIC SRINIVASAN</div>
+            <div class="ux-ui-designer" style="letter-spacing: 4px; color: var(--orange); margin-top: 4px;">UI/UX DESIGNER • B.TECH IT</div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">
+              Thanjavur, Tamil Nadu &nbsp;|&nbsp; +91-7540054426 &nbsp;|&nbsp; kousic.it@gmail.com
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <a href="resume.html" target="_blank" class="btn-orange-sm">Print / Full Page</a>
+            <a href="assets/resume.pdf" download class="btn-outline-sm">Download PDF</a>
+          </div>
+        </div>
+
+        <div class="resume-divider-line"></div>
+
+        <!-- Summary -->
+        <div class="resume-section-item">
+          <div class="caption" style="color: var(--orange); margin-bottom: 6px;">Professional Summary</div>
+          <p class="paragraph" style="color: var(--text-muted); font-size: 13.5px;">
+            IT engineering graduate (B.Tech IT) transitioning into UX/UI Design. Combines a solid understanding of front-end web layouts (HTML, CSS, JavaScript) with practical experience in Software Testing (QA) and Business Operations. Skilled at identifying interface bugs, mapping out clear user steps, and applying user-centered design frameworks from the Google UX Design Certificate to build clean, functional digital products.
+          </p>
+        </div>
+
+        <!-- Skills -->
+        <div class="resume-section-item">
+          <div class="caption" style="color: var(--orange); margin-bottom: 8px;">Skills</div>
+          <p style="font-size: 13px; margin-bottom: 4px;"><strong>UX/UI Design:</strong> <span style="color: var(--text-muted);">Wireframing, High-Fidelity Mockups, Prototyping, User Flow Design, Usability Testing, User Research.</span></p>
+          <p style="font-size: 13px;"><strong>Tools & Code:</strong> <span style="color: var(--text-muted);">Figma, JIRA Bug Tracking, HTML5, CSS3, JavaScript.</span></p>
+        </div>
+
+        <!-- Experience -->
+        <div class="resume-section-item">
+          <div class="caption" style="color: var(--orange); margin-bottom: 12px;">Work Experience</div>
+
+          <div style="margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 14px;">
+              <span>HAMLY BUSINESS SOLUTIONS | Process Associate</span>
+              <span style="color: var(--orange);">Mar 2024 – Dec 2025</span>
+            </div>
+            <ul class="resume-bullets-clean">
+              <li>Managed and checked large amounts of medical billing data to ensure all records were accurate and complete.</li>
+              <li>Mapped out clear, step-by-step instructions for internal software workflows to make processing faster for the team.</li>
+              <li>Found layout issues and slow points in our internal tools and shared feedback to improve the system's usability.</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 14px;">
+              <span>UBISOFT INDIA | Junior Game Tester (QA)</span>
+              <span style="color: var(--orange);">Nov 2020 – Nov 2021</span>
+            </div>
+            <ul class="resume-bullets-clean">
+              <li>Tested menus, screens, and settings to find layout mistakes, broken buttons, and confusing navigation loops.</li>
+              <li>Wrote detailed bug reports in JIRA to show developers exactly where the interface was breaking and how to fix it.</li>
+              <li>Reviewed first-time user tutorials and onboarding screens to suggest ways to make choices clearer and faster for players.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 14px;">
+              <span>FUSION PRACTICES | Software Development Trainee</span>
+              <span style="color: var(--orange);">Sep 2018 – Apr 2019</span>
+            </div>
+            <ul class="resume-bullets-clean">
+              <li>Designed wireframes and interactive mockups for internal employee dashboards to simplify company workflows.</li>
+              <li>Created clean user interface layouts, icons, and visual branding assets for a variety of corporate client projects.</li>
+              <li>Built responsive web layouts focusing on simple navigation and highly intuitive user experiences.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="resume-section-item">
+          <div class="caption" style="color: var(--orange); margin-bottom: 8px;">Education & Credentials</div>
+          <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
+            <strong>Google UX Design Professional Certificate | Coursera</strong>
+            <span style="color: var(--orange);">Sep 2023</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 13px;">
+            <strong>B.Tech in Information Technology | SASTRA Deemed University, Thanjavur</strong>
+            <span style="color: var(--text-muted);">2014 – 2018</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
