@@ -3,7 +3,7 @@
 # Kousic Srinivasan
 ### **UI/UX Designer & Front-End Developer | QA Background**
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Online-e65c00?style=for-the-badge&logo=googlechrome&logoColor=white)](https://kousic17.github.io/portfolio/)
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Online-e65c00?style=for-the-badge&logo=googlechrome&logoColor=white)](https://kousic17.github.io/)
 [![Google UX Certified](https://img.shields.io/badge/Google_Certified-UX_Design-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://www.coursera.org/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://in.linkedin.com/in/kousic-srinivas-b6876477)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kousic17)
@@ -14,7 +14,7 @@
 
 <br/>
 
-[🌟 View Live Portfolio](https://kousic17.github.io/portfolio/) • [📑 Suzoki Slide Deck](https://kousic17.github.io/portfolio/deck-suzoki.html) • [🎓 E-Learning Slide Deck](https://kousic17.github.io/portfolio/deck-elearning.html) • [📄 Web Resume](https://kousic17.github.io/portfolio/resume.html)
+[🌟 View Live Portfolio](https://kousic17.github.io/) • [📑 Suzoki Slide Deck](https://kousic17.github.io/deck-suzoki.html) • [🎓 E-Learning Slide Deck](https://kousic17.github.io/deck-elearning.html) • [📄 Web Resume](https://kousic17.github.io/resume.html)
 
 </div>
 
@@ -41,7 +41,7 @@ Most design pipelines suffer from a handoff disconnect: designers create unfeasi
 - **The UX Solution:** Structured a streamlined ingredient customization sheet with real-time upfront price increments (`+¥100`), top category quick-switching pills, and a single-tap order flow reducing checkout time by 30%.
 - **Methods & Deliverables:** User Interviews, Empathy Mapping, Persona (*Kodama*), User Journey Maps, 3 Paper Wireframe Iterations, Low-Fi & High-Fi Prototyping, 2 Rounds of Usability Studies.
 - **Explore Project:**
-  - 🖥️ **[Interactive 25-Slide Deck](https://kousic17.github.io/portfolio/deck-suzoki.html)** *(Includes full paper sketches, wireframes, and usability findings)*
+  - 🖥️ **[Interactive 25-Slide Deck](https://kousic17.github.io/deck-suzoki.html)** *(Includes full paper sketches, wireframes, and usability findings)*
   - 🎨 **[Clickable Figma Prototype](https://www.figma.com/proto/eXS2PGRh8YV0npNgeKcw3e/Figma-designs?embed_host=share&kind=&node-id=232-195&page-id=223%3A184&scaling=scale-down&starting-point-node-id=232%3A195&t=ma0XHmAlpeKYIJDC-1&type=design&viewport=297%2C132%2C0.13)**
 
 ---
@@ -53,7 +53,7 @@ Most design pipelines suffer from a handoff disconnect: designers create unfeasi
 - **The UX Solution:** Designed a collaborative dual-pane learning environment pairing video playback with synchronized peer chat and an instant 1-click community mentor help overlay.
 - **Methods & Deliverables:** Demographic Surveys, Persona (*Darren Conner*), Information Architecture, Course Filter Grids, Student Progress Badging, Adobe XD Prototype.
 - **Explore Project:**
-  - 🖥️ **[Interactive 25-Slide Deck](https://kousic17.github.io/portfolio/deck-elearning.html)** *(Complete case study presentation)*
+  - 🖥️ **[Interactive 25-Slide Deck](https://kousic17.github.io/deck-elearning.html)** *(Complete case study presentation)*
   - 🎨 **[Interactive Adobe XD Prototype](https://xd.adobe.com/view/36b5e057-eb1d-4808-b1ee-b4eb62d27ffa-63e6/)**
 
 ---
@@ -116,7 +116,7 @@ I am actively applying for **UI/UX Designer**, **Product Designer**, and **UX/UI
 - 📧 **Email:** [kousic.it@gmail.com](mailto:kousic.it@gmail.com)
 - 📱 **Mobile:** +91-7540054426
 - 💼 **LinkedIn:** [linkedin.com/in/kousic-srinivas-b6876477](https://in.linkedin.com/in/kousic-srinivas-b6876477)
-- 🌐 **Live Portfolio:** [https://kousic17.github.io/portfolio/](https://kousic17.github.io/portfolio/)
+- 🌐 **Live Portfolio:** [https://kousic17.github.io/](https://kousic17.github.io/)
 
 ---
 <div align="center">
